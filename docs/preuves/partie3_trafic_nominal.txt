@@ -1,0 +1,4 @@
+Version(s) servie(s) : [9]
+Prédictions : 160 (60 unitaires + 5 lots de 20)
+Feedbacks : {201: 77} ; accord avec le label historique : 114/160
+Requête invalide volontaire : HTTP 422 invalid_input

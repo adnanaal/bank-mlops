@@ -1,0 +1,13 @@
+{
+  "registered_name": "bank-subscription-clf",
+  "version": 9,
+  "resolved_from": "alias:champion",
+  "mlflow_run_id": "a049ed090029438f9c36dd06543c0fc3",
+  "model_uri": "models:/bank-subscription-clf/9",
+  "source": "models:/m-27f81b44b49e49099972c59063f03048",
+  "tracking_uri": "http://localhost:7281",
+  "qualification": "production-ready",
+  "qualification_policy": "bank-qualif-v1",
+  "decision_threshold": 0.5,
+  "resolved_at": "2026-11-08T14:06:10.341643+00:00"
+}

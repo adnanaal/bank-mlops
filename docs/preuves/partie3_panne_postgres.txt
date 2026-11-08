@@ -1,0 +1,19 @@
+ Container bank-mlops-postgres-1 Stopping 
+ Container bank-mlops-postgres-1 Stopped 
+ Container bank-mlops-postgres-1 Starting 
+ Container bank-mlops-postgres-1 Started 
+
+=== 1. Fonctionnement nominal
+/health/ready -> 200 {'status': 'ready', 'model': {'registered_name': 'bank-subscription-clf', 'version': 9, 'mlflow_run_id': 'a049ed090029438f9c36dd06543c0fc3'}, 'instance_id': 'a9ba81ca-a82b-4bb6-843e-b10f232e91d0'}
+/predict      -> 200 {'request_id': 'a60db67f-e235-47a6-8f56-83f1d94ed9c6', 'model': {'registered_name': 'bank-subscription-clf', 'version': 9, 'mlflow_run_id': 'a049ed090029438f9c36dd06543c0fc3'}, 'prediction': {'prediction_id': '9428b8a6-a1e1-4541-adba-053fb812e766', 'item_index': 0, 'client_ref': 'q14483', 'probability': 0.4148308648832854, 'label': 'no', 'decision_threshold': 0.5}}
+
+=== 2. Arrêt de PostgreSQL (docker compose stop postgres)
+/health/ready -> 503 {'status': 'not_ready', 'model_loaded': True, 'database': False}
+/predict      -> 503 {'request_id': '1f894cc1-f965-4938-b52f-77330f5a1ff6', 'error_code': 'storage_unavailable', 'message': 'Traçabilité indisponible : aucune prédiction servie'}
+Diagnostic local (dernière ligne) : {"at": "2026-11-08T14:06:53.876986+00:00", "request_id": "1f894cc1-f965-4938-b52f-77330f5a1ff6", "endpoint": "/predict", "status": 503, "error_code": "storage_unavailable", "db_error": "couldn't get a connection after 2.00 sec"}
+
+=== 3. Redémarrage de PostgreSQL et reprise
+/health/ready -> 200 {'status': 'ready', 'model': {'registered_name': 'bank-subscription-clf', 'version': 9, 'mlflow_run_id': 'a049ed090029438f9c36dd06543c0fc3'}, 'instance_id': 'a9ba81ca-a82b-4bb6-843e-b10f232e91d0'}
+/predict      -> 200 {'request_id': 'c951585f-15f8-4ed7-a546-4de45b7f6f62', 'model': {'registered_name': 'bank-subscription-clf', 'version': 9, 'mlflow_run_id': 'a049ed090029438f9c36dd06543c0fc3'}, 'prediction': {'prediction_id': '6204d64b-f5f0-4dd2-b0c6-6d49af700de0', 'item_index': 0, 'client_ref': 'q14483', 'probability': 0.4148308648832854, 'label': 'no', 'decision_threshold': 0.5}}
+
+Incident maîtrisé : erreurs explicites pendant la panne, reprise sans redémarrer l'API.

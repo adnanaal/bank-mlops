@@ -1,0 +1,27 @@
+{
+  "policy_id": "bank-qualif-v1",
+  "objective": "Prioriser les clients à appeler : le modèle doit classer nettement mieux qu'au hasard les souscripteurs (AUC) et en retrouver au moins la moitié (rappel) au seuil retenu.",
+  "primary_metric": "qualification.roc_auc",
+  "checks": [
+    {"id": "auc_min", "metric": "qualification.roc_auc", "op": ">=", "value": 0.70,
+     "reason": "Sous 0,70 d'AUC, le classement des appels n'apporte pas assez par rapport à une liste aléatoire."},
+    {"id": "auc_vs_baseline", "metric": "qualification.roc_auc_gain_vs_baseline", "op": ">=", "value": 0.15,
+     "reason": "La baseline (prévalence) vaut 0,5 d'AUC : exiger un gain net et pas un simple bruit."},
+    {"id": "pr_auc_lift", "metric": "qualification.pr_auc_lift", "op": ">=", "value": 2.0,
+     "reason": "La précision moyenne doit au moins doubler la prévalence des souscripteurs."},
+    {"id": "recall_min", "metric": "qualification.recall", "op": ">=", "value": 0.50,
+     "reason": "Au seuil de décision, au moins la moitié des souscripteurs doivent être détectés."}
+  ],
+  "technical_checks": ["metrics_finite", "reload_identical", "qualification_corpus_matches", "provenance_real"],
+  "selection": {
+    "alias": "champion",
+    "rule": "Remplacer le champion si le candidat est production-ready et que son AUC de qualification n'est pas inférieure de plus de 0,005 à celle du champion (non-infériorité ; données plus récentes).",
+    "non_inferiority_margin": 0.005
+  },
+  "tags": {
+    "pending": "évaluation non terminée",
+    "production-ready": "politique pédagogique satisfaite (ne remplace pas une validation métier réelle)",
+    "rejected": "au moins un contrôle en échec",
+    "demo-only": "modèle entraîné pour une démonstration technique"
+  }
+}

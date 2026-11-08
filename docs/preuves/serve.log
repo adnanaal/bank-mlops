@@ -1,0 +1,355 @@
+Your deployments are being served and polling for scheduled runs!
+
+Deployments
+┌───────────────────────────────┐
+│ bank-batch-watcher/planifie   │
+│ bank-training-pipeline/manuel │
+└───────────────────────────────┘
+
+To trigger any of these deployments, use the following command:
+
+        $ prefect deployment run [DEPLOYMENT_NAME]
+
+You can also trigger your deployments via the Prefect UI: http://localhost:4200/deployments
+
+16:20:18.326 | WARNING | prefect.FlowRunCancellingObserver - The FlowRunCancellingObserver websocket failed with an exception. Switching to polling mode.
+Traceback (most recent call last):
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\.venv\Lib\site-packages\websockets\http11.py", line 244, in parse
+    status_line = yield from parse_line(read_line)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\.venv\Lib\site-packages\websockets\http11.py", line 320, in parse_line
+    line = yield from read_line(MAX_LINE_LENGTH)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\.venv\Lib\site-packages\websockets\streams.py", line 46, in read_line
+    raise EOFError(f"stream ends after {p} bytes, before end of line")
+EOFError: stream ends after 0 bytes, before end of line
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\.venv\Lib\site-packages\websockets\client.py", line 303, in parse
+    response = yield from Response.parse(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\.venv\Lib\site-packages\websockets\http11.py", line 246, in parse
+    raise EOFError("connection closed while reading HTTP status line") from exc
+EOFError: connection closed while reading HTTP status line
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\.venv\Lib\site-packages\prefect\_internal\observers.py", line 250, in _consume_events
+    async for event in self._events_subscriber:
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\.venv\Lib\site-packages\prefect\events\clients.py", line 884, in __anext__
+    await self._reconnect()
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\.venv\Lib\site-packages\prefect\events\clients.py", line 804, in _reconnect
+    self._websocket = await self._connect.__aenter__()
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\.venv\Lib\site-packages\websockets\asyncio\client.py", line 601, in __aenter__
+    return await self
+           ^^^^^^^^^^
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\.venv\Lib\site-packages\websockets\asyncio\client.py", line 557, in __await_impl__
+    await self.connection.handshake(
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\.venv\Lib\site-packages\websockets\asyncio\client.py", line 115, in handshake
+    raise self.protocol.handshake_exc
+websockets.exceptions.InvalidMessage: did not receive a valid HTTP response
+16:21:00.403 | INFO    | Flow run 'tuscan-degu' - Downloading flow code from storage at '.'
+16:21:07.639 | INFO    | Flow run 'tuscan-degu' - Beginning flow run 'tuscan-degu' for flow 'bank-batch-watcher'
+16:21:07.641 | INFO    | Flow run 'tuscan-degu' - View at http://localhost:4200/runs/flow-run/01a1b698-b33f-704a-99a9-3e1d38bdc5cf
+16:21:07.672 | INFO    | Flow run 'tuscan-degu' - Lot détecté : 2009-06-corrompu.csv (1 autre(s) en attente)
+16:21:08.313 | INFO    | Flow run 'flexible-lyrebird' - Beginning subflow run 'flexible-lyrebird' for flow 'bank-training-pipeline'
+16:21:08.315 | INFO    | Flow run 'flexible-lyrebird' - View at http://localhost:4200/runs/flow-run/e79811fe-3b47-46c2-a81c-49af07c92123
+16:21:08.326 | INFO    | Task run 'ingestion-9b4' - Ingestion : config=C:\Users\jojo\Documents\5MLDE\bank-mlops\configs\config.json, lot demandé=C:\Users\jojo\Documents\5MLDE\bank-mlops\data\landing\2009-06-corrompu.csv, déclencheur=schedule
+16:21:15.570 | INFO    | great_expectations.data_context.types.base - Created temporary directory 'C:\Users\jojo\AppData\Local\Temp\tmpu0h93fjh' for ephemeral docs site
+16:21:16.440 | ERROR   | Task run 'ingestion-9b4' - Task run failed with exception: ValidationBlockedError('Validation GX en échec (lot, source 2009-06-corrompu:2419acbd76c2) ; rapport : C:\\Users\\jojo\\Documents\\5MLDE\\bank-mlops\\data\\diagnostics\\validation\\20261107T152112_lot_2419acbd76c2_af4402_rejet.json\n- bank_lot : client_id unique (exemples [36225, 36225, 36225], client_ids [36225])\n- bank_lot : age dans [17, 100] (exemples [-3, -3, -3, -3, -3], client_ids [36225, 36226, 36227, 36228, 36229])\n- bank_lot : campaign numérique (pas de texte) (exemples [\'3\', \'1\', \'1\', \'1\', \'1\'], client_ids [36225, 36226, 36227, 36228, 36229])\n- bank_lot : campaign dans [1, 100] (exemples None, client_ids [])\n- bank_lot_qualite : Aucun client_id déjà présent dans le corpus (exemples [617], client_ids [])\n- bank_lot_qualite : Part de "unknown" pour job <= 10% (exemples [0.6061588330632091], client_ids [])')
+Traceback (most recent call last):
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\.venv\Lib\site-packages\prefect\task_engine.py", line 1021, in run_context
+    yield self
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\.venv\Lib\site-packages\prefect\task_engine.py", line 1684, in run_task_sync
+    engine.call_task_fn(txn)
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\.venv\Lib\site-packages\prefect\task_engine.py", line 1038, in call_task_fn
+    result = call_with_parameters(self.task.fn, parameters)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\.venv\Lib\site-packages\prefect\utilities\callables\__init__.py", line 348, in call_with_parameters
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\orchestration\tasks.py", line 39, in ingestion
+    loaded = load_data(config_path, batch=batch, trigger=trigger)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\src\ingestion.py", line 128, in load_data
+    report_path, _ = validate(
+                     ^^^^^^^^^
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\src\data_validation.py", line 331, in validate
+    raise ValidationBlockedError(_message(report, report_path), report_path=report_path, report=report)
+src.data_validation.ValidationBlockedError: Validation GX en échec (lot, source 2009-06-corrompu:2419acbd76c2) ; rapport : C:\Users\jojo\Documents\5MLDE\bank-mlops\data\diagnostics\validation\20261107T152112_lot_2419acbd76c2_af4402_rejet.json
+- bank_lot : client_id unique (exemples [36225, 36225, 36225], client_ids [36225])
+- bank_lot : age dans [17, 100] (exemples [-3, -3, -3, -3, -3], client_ids [36225, 36226, 36227, 36228, 36229])
+- bank_lot : campaign numérique (pas de texte) (exemples ['3', '1', '1', '1', '1'], client_ids [36225, 36226, 36227, 36228, 36229])
+- bank_lot : campaign dans [1, 100] (exemples None, client_ids [])
+- bank_lot_qualite : Aucun client_id déjà présent dans le corpus (exemples [617], client_ids [])
+- bank_lot_qualite : Part de "unknown" pour job <= 10% (exemples [0.6061588330632091], client_ids [])
+16:21:16.445 | ERROR   | Task run 'ingestion-9b4' - Finished in state Failed('Task run encountered an exception ValidationBlockedError: Validation GX en échec (lot, source 2009-06-corrompu:2419acbd76c2) ; rapport : C:\\Users\\jojo\\Documents\\5MLDE\\bank-mlops\\data\\diagnostics\\validation\\20261107T152112_lot_2419acbd76c2_af4402_rejet.json\n- bank_lot : client_id unique (exemples [36225, 36225, 36225], client_ids [36225])\n- bank_lot : age dans [17, 100] (exemples [-3, -3, -3, -3, -3], client_ids [36225, 36226, 36227, 36228, 36229])\n- bank_lot : campaign numérique (pas de texte) (exemples [\'3\', \'1\', \'1\', \'1\', \'1\'], client_ids [36225, 36226, 36227, 36228, 36229])\n- bank_lot : campaign dans [1, 100] (exemples None, client_ids [])\n- bank_lot_qualite : Aucun client_id déjà présent dans le corpus (exemples [617], client_ids [])\n- bank_lot_qualite : Part de "unknown" pour job <= 10% (exemples [0.6061588330632091], client_ids [])')
+16:21:17.330 | ERROR   | Flow run 'flexible-lyrebird' - Encountered exception during execution: ValidationBlockedError('Validation GX en échec (lot, source 2009-06-corrompu:2419acbd76c2) ; rapport : C:\\Users\\jojo\\Documents\\5MLDE\\bank-mlops\\data\\diagnostics\\validation\\20261107T152112_lot_2419acbd76c2_af4402_rejet.json\n- bank_lot : client_id unique (exemples [36225, 36225, 36225], client_ids [36225])\n- bank_lot : age dans [17, 100] (exemples [-3, -3, -3, -3, -3], client_ids [36225, 36226, 36227, 36228, 36229])\n- bank_lot : campaign numérique (pas de texte) (exemples [\'3\', \'1\', \'1\', \'1\', \'1\'], client_ids [36225, 36226, 36227, 36228, 36229])\n- bank_lot : campaign dans [1, 100] (exemples None, client_ids [])\n- bank_lot_qualite : Aucun client_id déjà présent dans le corpus (exemples [617], client_ids [])\n- bank_lot_qualite : Part de "unknown" pour job <= 10% (exemples [0.6061588330632091], client_ids [])')
+Traceback (most recent call last):
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\.venv\Lib\site-packages\prefect\flow_engine.py", line 1330, in run_context
+    yield self
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\.venv\Lib\site-packages\prefect\flow_engine.py", line 2111, in run_flow_sync
+    engine.call_flow_fn()
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\.venv\Lib\site-packages\prefect\flow_engine.py", line 1350, in call_flow_fn
+    result = call_with_parameters(self.flow.fn, self.parameters)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\.venv\Lib\site-packages\prefect\utilities\callables\__init__.py", line 348, in call_with_parameters
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\main.py", line 18, in main
+    data = ingestion(config_path, batch, trigger)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\.venv\Lib\site-packages\prefect\tasks.py", line 1227, in __call__
+    return run_task(
+           ^^^^^^^^^
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\.venv\Lib\site-packages\prefect\task_engine.py", line 1917, in run_task
+    return run_task_sync(**kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\.venv\Lib\site-packages\prefect\task_engine.py", line 1687, in run_task_sync
+    return engine.state if return_type == "state" else engine.result()
+                                                       ^^^^^^^^^^^^^^^
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\.venv\Lib\site-packages\prefect\task_engine.py", line 617, in result
+    raise self._raised
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\.venv\Lib\site-packages\prefect\task_engine.py", line 1021, in run_context
+    yield self
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\.venv\Lib\site-packages\prefect\task_engine.py", line 1684, in run_task_sync
+    engine.call_task_fn(txn)
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\.venv\Lib\site-packages\prefect\task_engine.py", line 1038, in call_task_fn
+    result = call_with_parameters(self.task.fn, parameters)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\.venv\Lib\site-packages\prefect\utilities\callables\__init__.py", line 348, in call_with_parameters
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\orchestration\tasks.py", line 39, in ingestion
+    loaded = load_data(config_path, batch=batch, trigger=trigger)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\src\ingestion.py", line 128, in load_data
+    report_path, _ = validate(
+                     ^^^^^^^^^
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\src\data_validation.py", line 331, in validate
+    raise ValidationBlockedError(_message(report, report_path), report_path=report_path, report=report)
+src.data_validation.ValidationBlockedError: Validation GX en échec (lot, source 2009-06-corrompu:2419acbd76c2) ; rapport : C:\Users\jojo\Documents\5MLDE\bank-mlops\data\diagnostics\validation\20261107T152112_lot_2419acbd76c2_af4402_rejet.json
+- bank_lot : client_id unique (exemples [36225, 36225, 36225], client_ids [36225])
+- bank_lot : age dans [17, 100] (exemples [-3, -3, -3, -3, -3], client_ids [36225, 36226, 36227, 36228, 36229])
+- bank_lot : campaign numérique (pas de texte) (exemples ['3', '1', '1', '1', '1'], client_ids [36225, 36226, 36227, 36228, 36229])
+- bank_lot : campaign dans [1, 100] (exemples None, client_ids [])
+- bank_lot_qualite : Aucun client_id déjà présent dans le corpus (exemples [617], client_ids [])
+- bank_lot_qualite : Part de "unknown" pour job <= 10% (exemples [0.6061588330632091], client_ids [])
+16:21:19.408 | INFO    | Flow run 'flexible-lyrebird' - Running hook 'on_failure' in response to entering state 'Failed'
+16:21:19.634 | INFO    | Flow run 'flexible-lyrebird' - Hook 'on_failure' finished running successfully
+16:21:19.635 | INFO    | Flow run 'flexible-lyrebird' - Finished in state Failed('Flow run encountered an exception: ValidationBlockedError: Validation GX en échec (lot, source 2009-06-corrompu:2419acbd76c2) ; rapport : C:\\Users\\jojo\\Documents\\5MLDE\\bank-mlops\\data\\diagnostics\\validation\\20261107T152112_lot_2419acbd76c2_af4402_rejet.json\n- bank_lot : client_id unique (exemples [36225, 36225, 36225], client_ids [36225])\n- bank_lot : age dans [17, 100] (exemples [-3, -3, -3, -3, -3], client_ids [36225, 36226, 36227, 36228, 36229])\n- bank_lot : campaign numérique (pas de texte) (exemples [\'3\', \'1\', \'1\', \'1\', \'1\'], client_ids [36225, 36226, 36227, 36228, 36229])\n- bank_lot : campaign dans [1, 100] (exemples None, client_ids [])\n- bank_lot_qualite : Aucun client_id déjà présent dans le corpus (exemples [617], client_ids [])\n- bank_lot_qualite : Part de "unknown" pour job <= 10% (exemples [0.6061588330632091], client_ids [])')
+16:21:19.654 | ERROR   | Flow run 'tuscan-degu' - Encountered exception during execution: ValidationBlockedError('Validation GX en échec (lot, source 2009-06-corrompu:2419acbd76c2) ; rapport : C:\\Users\\jojo\\Documents\\5MLDE\\bank-mlops\\data\\diagnostics\\validation\\20261107T152112_lot_2419acbd76c2_af4402_rejet.json\n- bank_lot : client_id unique (exemples [36225, 36225, 36225], client_ids [36225])\n- bank_lot : age dans [17, 100] (exemples [-3, -3, -3, -3, -3], client_ids [36225, 36226, 36227, 36228, 36229])\n- bank_lot : campaign numérique (pas de texte) (exemples [\'3\', \'1\', \'1\', \'1\', \'1\'], client_ids [36225, 36226, 36227, 36228, 36229])\n- bank_lot : campaign dans [1, 100] (exemples None, client_ids [])\n- bank_lot_qualite : Aucun client_id déjà présent dans le corpus (exemples [617], client_ids [])\n- bank_lot_qualite : Part de "unknown" pour job <= 10% (exemples [0.6061588330632091], client_ids [])')
+Traceback (most recent call last):
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\.venv\Lib\site-packages\prefect\flow_engine.py", line 1330, in run_context
+    yield self
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\.venv\Lib\site-packages\prefect\flow_engine.py", line 2111, in run_flow_sync
+    engine.call_flow_fn()
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\.venv\Lib\site-packages\prefect\flow_engine.py", line 1350, in call_flow_fn
+    result = call_with_parameters(self.flow.fn, self.parameters)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\.venv\Lib\site-packages\prefect\utilities\callables\__init__.py", line 348, in call_with_parameters
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\orchestration\deploy.py", line 37, in watch_landing
+    summary = training_pipeline(config_path, batch=str(batch), trigger='schedule')
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\.venv\Lib\site-packages\prefect\flows.py", line 1887, in __call__
+    return run_flow(
+           ^^^^^^^^^
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\.venv\Lib\site-packages\prefect\flow_engine.py", line 2268, in run_flow
+    ret_val = run_flow_sync(**kwargs)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\.venv\Lib\site-packages\prefect\flow_engine.py", line 2113, in run_flow_sync
+    return engine.state if return_type == "state" else engine.result()
+                                                       ^^^^^^^^^^^^^^^
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\.venv\Lib\site-packages\prefect\flow_engine.py", line 788, in result
+    raise self._raised
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\.venv\Lib\site-packages\prefect\flow_engine.py", line 1330, in run_context
+    yield self
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\.venv\Lib\site-packages\prefect\flow_engine.py", line 2111, in run_flow_sync
+    engine.call_flow_fn()
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\.venv\Lib\site-packages\prefect\flow_engine.py", line 1350, in call_flow_fn
+    result = call_with_parameters(self.flow.fn, self.parameters)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\.venv\Lib\site-packages\prefect\utilities\callables\__init__.py", line 348, in call_with_parameters
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\main.py", line 18, in main
+    data = ingestion(config_path, batch, trigger)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\.venv\Lib\site-packages\prefect\tasks.py", line 1227, in __call__
+    return run_task(
+           ^^^^^^^^^
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\.venv\Lib\site-packages\prefect\task_engine.py", line 1917, in run_task
+    return run_task_sync(**kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\.venv\Lib\site-packages\prefect\task_engine.py", line 1687, in run_task_sync
+    return engine.state if return_type == "state" else engine.result()
+                                                       ^^^^^^^^^^^^^^^
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\.venv\Lib\site-packages\prefect\task_engine.py", line 617, in result
+    raise self._raised
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\.venv\Lib\site-packages\prefect\task_engine.py", line 1021, in run_context
+    yield self
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\.venv\Lib\site-packages\prefect\task_engine.py", line 1684, in run_task_sync
+    engine.call_task_fn(txn)
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\.venv\Lib\site-packages\prefect\task_engine.py", line 1038, in call_task_fn
+    result = call_with_parameters(self.task.fn, parameters)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\.venv\Lib\site-packages\prefect\utilities\callables\__init__.py", line 348, in call_with_parameters
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\orchestration\tasks.py", line 39, in ingestion
+    loaded = load_data(config_path, batch=batch, trigger=trigger)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\src\ingestion.py", line 128, in load_data
+    report_path, _ = validate(
+                     ^^^^^^^^^
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\src\data_validation.py", line 331, in validate
+    raise ValidationBlockedError(_message(report, report_path), report_path=report_path, report=report)
+src.data_validation.ValidationBlockedError: Validation GX en échec (lot, source 2009-06-corrompu:2419acbd76c2) ; rapport : C:\Users\jojo\Documents\5MLDE\bank-mlops\data\diagnostics\validation\20261107T152112_lot_2419acbd76c2_af4402_rejet.json
+- bank_lot : client_id unique (exemples [36225, 36225, 36225], client_ids [36225])
+- bank_lot : age dans [17, 100] (exemples [-3, -3, -3, -3, -3], client_ids [36225, 36226, 36227, 36228, 36229])
+- bank_lot : campaign numérique (pas de texte) (exemples ['3', '1', '1', '1', '1'], client_ids [36225, 36226, 36227, 36228, 36229])
+- bank_lot : campaign dans [1, 100] (exemples None, client_ids [])
+- bank_lot_qualite : Aucun client_id déjà présent dans le corpus (exemples [617], client_ids [])
+- bank_lot_qualite : Part de "unknown" pour job <= 10% (exemples [0.6061588330632091], client_ids [])
+16:21:19.828 | INFO    | Flow run 'tuscan-degu' - Finished in state Failed('Flow run encountered an exception: ValidationBlockedError: Validation GX en échec (lot, source 2009-06-corrompu:2419acbd76c2) ; rapport : C:\\Users\\jojo\\Documents\\5MLDE\\bank-mlops\\data\\diagnostics\\validation\\20261107T152112_lot_2419acbd76c2_af4402_rejet.json\n- bank_lot : client_id unique (exemples [36225, 36225, 36225], client_ids [36225])\n- bank_lot : age dans [17, 100] (exemples [-3, -3, -3, -3, -3], client_ids [36225, 36226, 36227, 36228, 36229])\n- bank_lot : campaign numérique (pas de texte) (exemples [\'3\', \'1\', \'1\', \'1\', \'1\'], client_ids [36225, 36226, 36227, 36228, 36229])\n- bank_lot : campaign dans [1, 100] (exemples None, client_ids [])\n- bank_lot_qualite : Aucun client_id déjà présent dans le corpus (exemples [617], client_ids [])\n- bank_lot_qualite : Part de "unknown" pour job <= 10% (exemples [0.6061588330632091], client_ids [])')
+16:21:19.830 | ERROR   | Flow run 'tuscan-degu' - Engine execution exited with unexpected exception
+Traceback (most recent call last):
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\.venv\Lib\site-packages\prefect\flow_engine.py", line 2268, in run_flow
+    ret_val = run_flow_sync(**kwargs)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\.venv\Lib\site-packages\prefect\flow_engine.py", line 2113, in run_flow_sync
+    return engine.state if return_type == "state" else engine.result()
+                                                       ^^^^^^^^^^^^^^^
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\.venv\Lib\site-packages\prefect\flow_engine.py", line 788, in result
+    raise self._raised
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\.venv\Lib\site-packages\prefect\flow_engine.py", line 1330, in run_context
+    yield self
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\.venv\Lib\site-packages\prefect\flow_engine.py", line 2111, in run_flow_sync
+    engine.call_flow_fn()
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\.venv\Lib\site-packages\prefect\flow_engine.py", line 1350, in call_flow_fn
+    result = call_with_parameters(self.flow.fn, self.parameters)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\.venv\Lib\site-packages\prefect\utilities\callables\__init__.py", line 348, in call_with_parameters
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\orchestration\deploy.py", line 37, in watch_landing
+    summary = training_pipeline(config_path, batch=str(batch), trigger='schedule')
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\.venv\Lib\site-packages\prefect\flows.py", line 1887, in __call__
+    return run_flow(
+           ^^^^^^^^^
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\.venv\Lib\site-packages\prefect\flow_engine.py", line 2268, in run_flow
+    ret_val = run_flow_sync(**kwargs)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\.venv\Lib\site-packages\prefect\flow_engine.py", line 2113, in run_flow_sync
+    return engine.state if return_type == "state" else engine.result()
+                                                       ^^^^^^^^^^^^^^^
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\.venv\Lib\site-packages\prefect\flow_engine.py", line 788, in result
+    raise self._raised
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\.venv\Lib\site-packages\prefect\flow_engine.py", line 1330, in run_context
+    yield self
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\.venv\Lib\site-packages\prefect\flow_engine.py", line 2111, in run_flow_sync
+    engine.call_flow_fn()
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\.venv\Lib\site-packages\prefect\flow_engine.py", line 1350, in call_flow_fn
+    result = call_with_parameters(self.flow.fn, self.parameters)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\.venv\Lib\site-packages\prefect\utilities\callables\__init__.py", line 348, in call_with_parameters
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\main.py", line 18, in main
+    data = ingestion(config_path, batch, trigger)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\.venv\Lib\site-packages\prefect\tasks.py", line 1227, in __call__
+    return run_task(
+           ^^^^^^^^^
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\.venv\Lib\site-packages\prefect\task_engine.py", line 1917, in run_task
+    return run_task_sync(**kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\.venv\Lib\site-packages\prefect\task_engine.py", line 1687, in run_task_sync
+    return engine.state if return_type == "state" else engine.result()
+                                                       ^^^^^^^^^^^^^^^
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\.venv\Lib\site-packages\prefect\task_engine.py", line 617, in result
+    raise self._raised
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\.venv\Lib\site-packages\prefect\task_engine.py", line 1021, in run_context
+    yield self
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\.venv\Lib\site-packages\prefect\task_engine.py", line 1684, in run_task_sync
+    engine.call_task_fn(txn)
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\.venv\Lib\site-packages\prefect\task_engine.py", line 1038, in call_task_fn
+    result = call_with_parameters(self.task.fn, parameters)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\.venv\Lib\site-packages\prefect\utilities\callables\__init__.py", line 348, in call_with_parameters
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\orchestration\tasks.py", line 39, in ingestion
+    loaded = load_data(config_path, batch=batch, trigger=trigger)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\src\ingestion.py", line 128, in load_data
+    report_path, _ = validate(
+                     ^^^^^^^^^
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\src\data_validation.py", line 331, in validate
+    raise ValidationBlockedError(_message(report, report_path), report_path=report_path, report=report)
+src.data_validation.ValidationBlockedError: Validation GX en échec (lot, source 2009-06-corrompu:2419acbd76c2) ; rapport : C:\Users\jojo\Documents\5MLDE\bank-mlops\data\diagnostics\validation\20261107T152112_lot_2419acbd76c2_af4402_rejet.json
+- bank_lot : client_id unique (exemples [36225, 36225, 36225], client_ids [36225])
+- bank_lot : age dans [17, 100] (exemples [-3, -3, -3, -3, -3], client_ids [36225, 36226, 36227, 36228, 36229])
+- bank_lot : campaign numérique (pas de texte) (exemples ['3', '1', '1', '1', '1'], client_ids [36225, 36226, 36227, 36228, 36229])
+- bank_lot : campaign dans [1, 100] (exemples None, client_ids [])
+- bank_lot_qualite : Aucun client_id déjà présent dans le corpus (exemples [617], client_ids [])
+- bank_lot_qualite : Part de "unknown" pour job <= 10% (exemples [0.6061588330632091], client_ids [])
+🏃 View run 20261107T152108_2009-06-corrompu at: http://localhost:7281/#/experiments/1/runs/074a09d0fef940bb952cb67d403186bd
+🧪 View experiment at: http://localhost:7281/#/experiments/1
+16:22:00.518 | INFO    | Flow run 'sepia-sponge' - Downloading flow code from storage at '.'
+16:22:07.701 | INFO    | Flow run 'sepia-sponge' - Beginning flow run 'sepia-sponge' for flow 'bank-batch-watcher'
+16:22:07.701 | INFO    | Flow run 'sepia-sponge' - View at http://localhost:4200/runs/flow-run/01a1b698-b340-7eb9-9c65-db948edc8675
+16:22:07.719 | INFO    | Flow run 'sepia-sponge' - Lot détecté : 2009-07.csv (0 autre(s) en attente)
+16:22:08.293 | INFO    | Flow run 'hulking-wombat' - Beginning subflow run 'hulking-wombat' for flow 'bank-training-pipeline'
+16:22:08.294 | INFO    | Flow run 'hulking-wombat' - View at http://localhost:4200/runs/flow-run/6f876e47-f704-406e-a6a2-a4fcf1092209
+16:22:08.303 | INFO    | Task run 'ingestion-d31' - Ingestion : config=C:\Users\jojo\Documents\5MLDE\bank-mlops\configs\config.json, lot demandé=C:\Users\jojo\Documents\5MLDE\bank-mlops\data\landing\2009-07.csv, déclencheur=schedule
+16:22:15.471 | INFO    | great_expectations.data_context.types.base - Created temporary directory 'C:\Users\jojo\AppData\Local\Temp\tmp5xu72kut' for ephemeral docs site
+16:22:22.448 | INFO    | Task run 'ingestion-d31' - Lot 2009-07:105d5eb36b6a validé ; snapshot 31581 lignes (sha 561e4bcfb641) ; run MLflow e3f67404c22f446caf5ce5a5a381205d
+16:22:22.452 | INFO    | Task run 'ingestion-d31' - Finished in state Completed()
+16:22:24.617 | INFO    | Task run 'pretraitement-24e' - Split stratifié : 25264 train, 6317 test, 6121 qualification (taux positifs train 0.075)
+16:22:24.621 | INFO    | Task run 'pretraitement-24e' - Finished in state Completed()
+16:22:25.764 | INFO    | Task run 'entrainement-071' - Régression logistique entraînée en 0.73 s
+16:22:25.768 | INFO    | Task run 'entrainement-071' - Finished in state Completed()
+2026/11/07 16:22:27 INFO mlflow.utils.uv_utils: Detected uv project: found uv.lock and pyproject.toml in C:\Users\jojo\Documents\5MLDE\bank-mlops
+2026/11/07 16:22:28 WARNING mlflow.sklearn: Saving scikit-learn models in the pickle or cloudpickle format requires exercising caution because these formats rely on Python's object serialization mechanism, which can execute arbitrary code during deserialization. The recommended safe alternative is the 'skops' format. For more information, see: https://scikit-learn.org/stable/model_persistence.html
+2026/11/07 16:22:30 WARNING mlflow.utils.environment: Failed to resolve installed pip version. ``pip`` will be added to conda.yaml environment spec without a version specifier.
+🏃 View run 20261107T152208_2009-07 at: http://localhost:7281/#/experiments/1/runs/e3f67404c22f446caf5ce5a5a381205d
+🧪 View experiment at: http://localhost:7281/#/experiments/1
+Downloading artifacts:   0%|          | 0/21 [00:00<?, ?it/s]Downloading artifacts:   5%|▍         | 1/21 [00:00<?, ?it/s]Downloading artifacts:  10%|▉         | 2/21 [00:00<?, ?it/s]Downloading artifacts:  14%|█▍        | 3/21 [00:00<?, ?it/s]Downloading artifacts:  19%|█▉        | 4/21 [00:00<?, ?it/s]Downloading artifacts:  24%|██▍       | 5/21 [00:00<?, ?it/s]Downloading artifacts:  29%|██▊       | 6/21 [00:00<?, ?it/s]Downloading artifacts:  33%|███▎      | 7/21 [00:00<?, ?it/s]Downloading artifacts:  38%|███▊      | 8/21 [00:00<?, ?it/s]Downloading artifacts:  43%|████▎     | 9/21 [00:00<?, ?it/s]Downloading artifacts:  48%|████▊     | 10/21 [00:00<?, ?it/s]Downloading artifacts:  52%|█████▏    | 11/21 [00:00<?, ?it/s]Downloading artifacts:  57%|█████▋    | 12/21 [00:00<?, ?it/s]Downloading artifacts:  62%|██████▏   | 13/21 [00:00<?, ?it/s]Downloading artifacts:  67%|██████▋   | 14/21 [00:00<?, ?it/s]Downloading artifacts:  71%|███████▏  | 15/21 [00:00<?, ?it/s]Downloading artifacts:  76%|███████▌  | 16/21 [00:00<?, ?it/s]Downloading artifacts:  81%|████████  | 17/21 [00:00<?, ?it/s]Downloading artifacts:  86%|████████▌ | 18/21 [00:00<?, ?it/s]Downloading artifacts:  90%|█████████ | 19/21 [00:00<?, ?it/s]Downloading artifacts:  95%|█████████▌| 20/21 [00:00<?, ?it/s]Downloading artifacts: 100%|██████████| 21/21 [00:00<?, ?it/s]Downloading artifacts: 100%|██████████| 21/21 [00:00<?, ?it/s]
+Registered model 'bank-subscription-clf' already exists. Creating a new version of this model...
+2026/11/07 16:22:31 INFO mlflow.store.model_registry.abstract_store: Waiting up to 300 seconds for model version to finish creation. Model name: bank-subscription-clf, version 7
+Created version '7' of model 'bank-subscription-clf'.
+16:22:31.636 | INFO    | Task run 'publication-mlflow-0c7' - Finished in state Completed()
+Downloading artifacts:   0%|          | 0/21 [00:00<?, ?it/s]🏃 View run 20261107T152208_2009-07 at: http://localhost:7281/#/experiments/1/runs/e3f67404c22f446caf5ce5a5a381205d
+🧪 View experiment at: http://localhost:7281/#/experiments/1
+Downloading artifacts:   5%|▍         | 1/21 [00:00<?, ?it/s]Downloading artifacts:  10%|▉         | 2/21 [00:00<00:01, 17.33it/s]Downloading artifacts:  10%|▉         | 2/21 [00:00<00:01, 17.33it/s]Downloading artifacts:  14%|█▍        | 3/21 [00:00<00:01, 17.33it/s]Downloading artifacts:  19%|█▉        | 4/21 [00:00<00:00, 17.33it/s]Downloading artifacts:  24%|██▍       | 5/21 [00:00<00:00, 17.33it/s]Downloading artifacts:  29%|██▊       | 6/21 [00:00<00:00, 29.21it/s]Downloading artifacts:  29%|██▊       | 6/21 [00:00<00:00, 29.21it/s]Downloading artifacts:  33%|███▎      | 7/21 [00:00<00:00, 29.21it/s]Downloading artifacts:  38%|███▊      | 8/21 [00:00<00:00, 29.21it/s]Downloading artifacts:  43%|████▎     | 9/21 [00:00<00:00, 29.21it/s]Downloading artifacts:  48%|████▊     | 10/21 [00:00<00:00, 32.32it/s]Downloading artifacts:  48%|████▊     | 10/21 [00:00<00:00, 32.32it/s]Downloading artifacts:  52%|█████▏    | 11/21 [00:00<00:00, 32.32it/s]Downloading artifacts:  57%|█████▋    | 12/21 [00:00<00:00, 32.32it/s]Downloading artifacts:  62%|██████▏   | 13/21 [00:00<00:00, 32.32it/s]Downloading artifacts:  67%|██████▋   | 14/21 [00:00<00:00, 32.32it/s]Downloading artifacts:  71%|███████▏  | 15/21 [00:00<00:00, 32.32it/s]Downloading artifacts:  76%|███████▌  | 16/21 [00:00<00:00, 41.88it/s]Downloading artifacts:  76%|███████▌  | 16/21 [00:00<00:00, 41.88it/s]Downloading artifacts:  81%|████████  | 17/21 [00:00<00:00, 41.88it/s]Downloading artifacts:  86%|████████▌ | 18/21 [00:00<00:00, 41.88it/s]Downloading artifacts:  90%|█████████ | 19/21 [00:00<00:00, 41.88it/s]Downloading artifacts:  95%|█████████▌| 20/21 [00:00<00:00, 41.88it/s]Downloading artifacts: 100%|██████████| 21/21 [00:00<00:00, 41.88it/s]Downloading artifacts: 100%|██████████| 21/21 [00:00<00:00, 42.32it/s]
+16:22:33.628 | INFO    | Task run 'evaluation-publication-b8c' - Version 7 du modèle bank-subscription-clf : qualification=production-ready, sélection={'selected': True, 'reason': 'AUC 0.7903 >= champion 0.7873 - 0.005', 'previous_version': 6}, AUC qualif=0.7903
+16:22:33.632 | INFO    | Task run 'evaluation-publication-b8c' - Finished in state Completed()
+16:22:36.371 | INFO    | Flow run 'hulking-wombat' - Finished in state Completed()
+16:22:36.975 | INFO    | Flow run 'sepia-sponge' - Finished in state Completed()
+🏃 View run 20261107T152208_2009-07 at: http://localhost:7281/#/experiments/1/runs/e3f67404c22f446caf5ce5a5a381205d
+🧪 View experiment at: http://localhost:7281/#/experiments/1
+16:22:55.041 | INFO    | Flow run 'green-porpoise' - Downloading flow code from storage at '.'
+16:23:02.228 | INFO    | Flow run 'green-porpoise' - Beginning flow run 'green-porpoise' for flow 'bank-batch-watcher'
+16:23:02.229 | INFO    | Flow run 'green-porpoise' - View at http://localhost:4200/runs/flow-run/01a1b698-b340-7d17-a6e6-fb4199c918f4
+16:23:02.253 | INFO    | Flow run 'green-porpoise' - Aucun lot en attente dans C:\Users\jojo\Documents\5MLDE\bank-mlops\data\landing
+16:23:03.399 | INFO    | Flow run 'green-porpoise' - Finished in state Completed()
+16:23:04.291 | WARNING | EventsWorker - Still processing items: 1 items remaining...
+16:23:56.610 | INFO    | Flow run 'tricky-saluki' - Downloading flow code from storage at '.'
+16:24:03.722 | INFO    | Flow run 'tricky-saluki' - Beginning flow run 'tricky-saluki' for flow 'bank-batch-watcher'
+16:24:03.723 | INFO    | Flow run 'tricky-saluki' - View at http://localhost:4200/runs/flow-run/01a1b698-b340-7df5-a4dc-fcf2584843ce
+16:24:03.733 | INFO    | Flow run 'tricky-saluki' - Aucun lot en attente dans C:\Users\jojo\Documents\5MLDE\bank-mlops\data\landing
+16:24:04.915 | INFO    | Flow run 'tricky-saluki' - Finished in state Completed()
+16:24:05.778 | WARNING | EventsWorker - Still processing items: 1 items remaining...
+16:24:59.647 | INFO    | Flow run 'eager-anaconda' - Downloading flow code from storage at '.'
+16:25:07.467 | INFO    | Flow run 'eager-anaconda' - Beginning flow run 'eager-anaconda' for flow 'bank-batch-watcher'
+16:25:07.468 | INFO    | Flow run 'eager-anaconda' - View at http://localhost:4200/runs/flow-run/01a1b698-b340-70b9-b230-0cd11fc4d8f0
+16:25:07.474 | INFO    | Flow run 'eager-anaconda' - Aucun lot en attente dans C:\Users\jojo\Documents\5MLDE\bank-mlops\data\landing
+16:25:08.668 | INFO    | Flow run 'eager-anaconda' - Finished in state Completed()

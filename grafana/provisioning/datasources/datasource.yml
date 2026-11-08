@@ -1,0 +1,22 @@
+apiVersion: 1
+
+datasources:
+  - name: Bank API - PostgreSQL
+    uid: bank-api-postgres
+    type: grafana-postgresql-datasource
+    access: proxy
+    url: postgres:5432
+    user: grafana_reader
+    editable: false
+    isDefault: true
+    version: 1
+    secureJsonData:
+      password: $GRAFANA_DB_PASSWORD
+    jsonData:
+      database: bank_api
+      sslmode: disable
+      postgresVersion: 1800
+      timescaledb: false
+      maxOpenConns: 5
+      maxIdleConns: 2
+      connMaxLifetime: 300

@@ -1,0 +1,42 @@
+{
+  "base_dir": "..",
+  "data": {
+    "initial": "data/prepared/initial.csv",
+    "qualification": "data/prepared/qualification.csv",
+    "landing_dir": "data/landing",
+    "ledger": "data/state/ledger.json",
+    "snapshots_dir": "data/snapshots",
+    "diagnostics_dir": "data/diagnostics",
+    "source_provenance": "data/raw/SOURCE.json"
+  },
+  "output_root": "runs",
+  "seed": 42,
+  "test_size": 0.2,
+  "model": {
+    "name": "logistic_regression",
+    "C": 1.0,
+    "class_weight": "balanced",
+    "max_iter": 2000,
+    "min_frequency": 10
+  },
+  "decision_threshold": 0.5,
+  "quality": {
+    "min_batch_rows": 100,
+    "max_duplicate_share": 0.01,
+    "max_unknown_share": {
+      "job": 0.10,
+      "marital": 0.05,
+      "education": 0.20,
+      "default": 0.40,
+      "housing": 0.10,
+      "loan": 0.10
+    },
+    "min_positive_in_snapshot": 50
+  },
+  "mlflow": {
+    "experiment": "bank-mlops",
+    "registered_model": "bank-subscription-clf"
+  },
+  "qualification_policy": "configs/qualification_policy.json",
+  "auto_select": true
+}

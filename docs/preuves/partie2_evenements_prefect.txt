@@ -1,0 +1,10 @@
+13:36:41  prefect.flow-run.Failed                       humorous-moth                flow=bank-training-pipeline   
+13:36:41  prefect.automation.action.triggered           bank-mlops-echec-pipeline    flow=-                        01a1bb60-21c9-7a1c-8708-079f563ec6a2
+13:36:41  prefect.automation.triggered                  bank-mlops-echec-pipeline    flow=-                        
+13:36:43  prefect.automation.action.executed            bank-mlops-echec-pipeline    flow=-                        01a1bb60-21c9-7a1c-8708-079f563ec6a2
+13:38:19  prefect.flow-run.Completed                    quirky-dachshund             flow=bank-training-pipeline   
+13:39:50  prefect.flow-run.Failed                       military-groundhog           flow=bank-training-pipeline   
+13:39:50  prefect.automation.action.triggered           bank-mlops-echec-pipeline    flow=-                        01a1bb63-00df-7d6f-b968-7bc1d2a39f1e
+13:39:50  prefect.automation.triggered                  bank-mlops-echec-pipeline    flow=-                        
+13:39:50  prefect.automation.action.executed            bank-mlops-echec-pipeline    flow=-                        01a1bb63-00df-7d6f-b968-7bc1d2a39f1e
+13:40:39  prefect.flow-run.Completed                    gifted-elephant              flow=bank-training-pipeline   

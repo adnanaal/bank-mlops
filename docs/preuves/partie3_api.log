@@ -1,0 +1,172 @@
+INFO:     Uvicorn running on http://127.0.0.1:8001 (Press CTRL+C to quit)
+INFO:     Started parent process [10396]
+INFO:     Started server process [20572]
+INFO:     Waiting for application startup.
+INFO:     Started server process [4364]
+INFO:     Waiting for application startup.
+Downloading artifacts:   0%|          | 0/22 [00:00<?, ?it/s]Downloading artifacts:   0%|          | 0/22 [00:00<?, ?it/s]Downloading artifacts:   5%|▍         | 1/22 [00:02<00:43,  2.09s/it]Downloading artifacts:   5%|▍         | 1/22 [00:02<00:43,  2.09s/it]Downloading artifacts:   5%|▍         | 1/22 [00:02<00:43,  2.09s/it]Downloading artifacts:   9%|▉         | 2/22 [00:02<00:41,  2.09s/it]Downloading artifacts:   5%|▍         | 1/22 [00:02<00:43,  2.09s/it]Downloading artifacts:   9%|▉         | 2/22 [00:02<00:41,  2.09s/it]Downloading artifacts:  14%|█▎        | 3/22 [00:02<00:11,  1.72it/s]Downloading artifacts:  14%|█▎        | 3/22 [00:02<00:11,  1.72it/s]Downloading artifacts:  14%|█▎        | 3/22 [00:02<00:39,  2.09s/it]Downloading artifacts:  18%|█▊        | 4/22 [00:02<00:07,  2.36it/s]Downloading artifacts:  18%|█▊        | 4/22 [00:02<00:07,  2.36it/s]Downloading artifacts:  18%|█▊        | 4/22 [00:02<00:10,  1.72it/s]Downloading artifacts:  23%|██▎       | 5/22 [00:02<00:07,  2.36it/s]Downloading artifacts:  27%|██▋       | 6/22 [00:02<00:06,  2.36it/s]Downloading artifacts:  23%|██▎       | 5/22 [00:02<00:09,  1.72it/s]Downloading artifacts:  27%|██▋       | 6/22 [00:02<00:09,  1.72it/s]Downloading artifacts:  32%|███▏      | 7/22 [00:02<00:06,  2.36it/s]Downloading artifacts:  36%|███▋      | 8/22 [00:02<00:05,  2.36it/s]Downloading artifacts:  32%|███▏      | 7/22 [00:02<00:08,  1.72it/s]Downloading artifacts:  36%|███▋      | 8/22 [00:02<00:02,  5.75it/s]Downloading artifacts:  36%|███▋      | 8/22 [00:02<00:02,  5.75it/s]Downloading artifacts:  41%|████      | 9/22 [00:02<00:02,  5.75it/s]Downloading artifacts:  41%|████      | 9/22 [00:02<00:02,  6.31it/s]Downloading artifacts:  41%|████      | 9/22 [00:02<00:02,  6.31it/s]Downloading artifacts:  45%|████▌     | 10/22 [00:02<00:02,  5.75it/s]Downloading artifacts:  45%|████▌     | 10/22 [00:02<00:01,  6.31it/s]Downloading artifacts:  50%|█████     | 11/22 [00:02<00:01,  5.75it/s]Downloading artifacts:  50%|█████     | 11/22 [00:02<00:01,  6.31it/s]Downloading artifacts:  55%|█████▍    | 12/22 [00:02<00:01,  5.75it/s]Downloading artifacts:  55%|█████▍    | 12/22 [00:02<00:01,  6.31it/s]Downloading artifacts:  59%|█████▉    | 13/22 [00:02<00:01,  5.75it/s]Downloading artifacts:  59%|█████▉    | 13/22 [00:02<00:01,  6.31it/s]Downloading artifacts:  64%|██████▎   | 14/22 [00:02<00:00, 11.42it/s]Downloading artifacts:  64%|██████▎   | 14/22 [00:02<00:00, 11.42it/s]Downloading artifacts:  68%|██████▊   | 15/22 [00:02<00:00, 11.42it/s]Downloading artifacts:  73%|███████▎  | 16/22 [00:02<00:00, 11.42it/s]Downloading artifacts:  64%|██████▎   | 14/22 [00:02<00:00, 10.80it/s]Downloading artifacts:  64%|██████▎   | 14/22 [00:02<00:00, 10.80it/s]Downloading artifacts:  68%|██████▊   | 15/22 [00:02<00:00, 10.80it/s]Downloading artifacts:  73%|███████▎  | 16/22 [00:02<00:00, 10.80it/s]Downloading artifacts:  77%|███████▋  | 17/22 [00:02<00:00, 10.80it/s]Downloading artifacts:  82%|████████▏ | 18/22 [00:02<00:00, 10.80it/s]Downloading artifacts:  77%|███████▋  | 17/22 [00:02<00:00, 11.42it/s]Downloading artifacts:  82%|████████▏ | 18/22 [00:02<00:00, 11.42it/s]Downloading artifacts:  86%|████████▋ | 19/22 [00:02<00:00, 10.80it/s]Downloading artifacts:  91%|█████████ | 20/22 [00:02<00:00, 10.80it/s]Downloading artifacts:  86%|████████▋ | 19/22 [00:02<00:00, 11.42it/s]Downloading artifacts:  95%|█████████▌| 21/22 [00:02<00:00, 10.80it/s]Downloading artifacts:  91%|█████████ | 20/22 [00:02<00:00, 17.73it/s]Downloading artifacts:  91%|█████████ | 20/22 [00:02<00:00, 17.73it/s]Downloading artifacts: 100%|██████████| 22/22 [00:02<00:00, 10.80it/s]Downloading artifacts: 100%|██████████| 22/22 [00:02<00:00,  8.80it/s]
+2026-11-08 15:06:21,978 INFO api_prediction Modèle bank-subscription-clf v9 chargé en 6.2 s
+2026-11-08 15:06:22,051 INFO api_prediction Worker a9ba81ca-a82b-4bb6-843e-b10f232e91d0 prêt à servir bank-subscription-clf v9
+INFO:     Application startup complete.
+Downloading artifacts:  95%|█████████▌| 21/22 [00:04<00:00, 17.73it/s]Downloading artifacts: 100%|██████████| 22/22 [00:04<00:00, 17.73it/s]Downloading artifacts: 100%|██████████| 22/22 [00:04<00:00,  4.83it/s]
+2026-11-08 15:06:24,018 INFO api_prediction Modèle bank-subscription-clf v9 chargé en 8.2 s
+2026-11-08 15:06:24,088 INFO api_prediction Worker 9345d363-669c-4d7f-81c8-31c89c18b68c prêt à servir bank-subscription-clf v9
+INFO:     Application startup complete.
+INFO:     127.0.0.1:64876 - "GET /model-info HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64879 - "POST /predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64879 - "POST /predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64879 - "POST /predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64879 - "POST /predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64879 - "POST /predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64879 - "POST /predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64879 - "POST /predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64879 - "POST /predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64879 - "POST /predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64879 - "POST /predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64879 - "POST /predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64879 - "POST /predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64879 - "POST /predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64879 - "POST /predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64879 - "POST /predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64879 - "POST /predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64879 - "POST /predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64879 - "POST /predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64879 - "POST /predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64879 - "POST /predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64879 - "POST /predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64879 - "POST /predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64879 - "POST /predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64879 - "POST /predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64879 - "POST /predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64879 - "POST /predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64879 - "POST /predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64879 - "POST /predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64879 - "POST /predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64879 - "POST /predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64879 - "POST /predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64879 - "POST /predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64879 - "POST /predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64879 - "POST /predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64879 - "POST /predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64879 - "POST /predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64879 - "POST /predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64879 - "POST /predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64879 - "POST /predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64879 - "POST /predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64879 - "POST /predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64879 - "POST /predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64879 - "POST /predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64879 - "POST /predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64879 - "POST /predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64879 - "POST /predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64879 - "POST /predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64879 - "POST /predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64879 - "POST /predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64879 - "POST /predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64879 - "POST /predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64879 - "POST /predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64879 - "POST /predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64879 - "POST /predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64879 - "POST /predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64879 - "POST /predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64879 - "POST /predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64879 - "POST /predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64879 - "POST /predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64879 - "POST /predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64879 - "POST /predict/batch HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64879 - "POST /predict/batch HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64879 - "POST /predict/batch HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64879 - "POST /predict/batch HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64879 - "POST /predict/batch HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64879 - "POST /feedback HTTP/1.1" 201 Created
+INFO:     127.0.0.1:64879 - "POST /feedback HTTP/1.1" 201 Created
+INFO:     127.0.0.1:64879 - "POST /feedback HTTP/1.1" 201 Created
+INFO:     127.0.0.1:64879 - "POST /feedback HTTP/1.1" 201 Created
+INFO:     127.0.0.1:64879 - "POST /feedback HTTP/1.1" 201 Created
+INFO:     127.0.0.1:64879 - "POST /feedback HTTP/1.1" 201 Created
+INFO:     127.0.0.1:64879 - "POST /feedback HTTP/1.1" 201 Created
+INFO:     127.0.0.1:64879 - "POST /feedback HTTP/1.1" 201 Created
+INFO:     127.0.0.1:64879 - "POST /feedback HTTP/1.1" 201 Created
+INFO:     127.0.0.1:64879 - "POST /feedback HTTP/1.1" 201 Created
+INFO:     127.0.0.1:64879 - "POST /feedback HTTP/1.1" 201 Created
+INFO:     127.0.0.1:64879 - "POST /feedback HTTP/1.1" 201 Created
+INFO:     127.0.0.1:64879 - "POST /feedback HTTP/1.1" 201 Created
+INFO:     127.0.0.1:64879 - "POST /feedback HTTP/1.1" 201 Created
+INFO:     127.0.0.1:64879 - "POST /feedback HTTP/1.1" 201 Created
+INFO:     127.0.0.1:64879 - "POST /feedback HTTP/1.1" 201 Created
+INFO:     127.0.0.1:64879 - "POST /feedback HTTP/1.1" 201 Created
+INFO:     127.0.0.1:64879 - "POST /feedback HTTP/1.1" 201 Created
+INFO:     127.0.0.1:64879 - "POST /feedback HTTP/1.1" 201 Created
+INFO:     127.0.0.1:64879 - "POST /feedback HTTP/1.1" 201 Created
+INFO:     127.0.0.1:64879 - "POST /feedback HTTP/1.1" 201 Created
+INFO:     127.0.0.1:64879 - "POST /feedback HTTP/1.1" 201 Created
+INFO:     127.0.0.1:64879 - "POST /feedback HTTP/1.1" 201 Created
+INFO:     127.0.0.1:64879 - "POST /feedback HTTP/1.1" 201 Created
+INFO:     127.0.0.1:64879 - "POST /feedback HTTP/1.1" 201 Created
+INFO:     127.0.0.1:64879 - "POST /feedback HTTP/1.1" 201 Created
+INFO:     127.0.0.1:64879 - "POST /feedback HTTP/1.1" 201 Created
+INFO:     127.0.0.1:64879 - "POST /feedback HTTP/1.1" 201 Created
+INFO:     127.0.0.1:64879 - "POST /feedback HTTP/1.1" 201 Created
+INFO:     127.0.0.1:64879 - "POST /feedback HTTP/1.1" 201 Created
+INFO:     127.0.0.1:64879 - "POST /feedback HTTP/1.1" 201 Created
+INFO:     127.0.0.1:64879 - "POST /feedback HTTP/1.1" 201 Created
+INFO:     127.0.0.1:64879 - "POST /feedback HTTP/1.1" 201 Created
+INFO:     127.0.0.1:64879 - "POST /feedback HTTP/1.1" 201 Created
+INFO:     127.0.0.1:64879 - "POST /feedback HTTP/1.1" 201 Created
+INFO:     127.0.0.1:64879 - "POST /feedback HTTP/1.1" 201 Created
+INFO:     127.0.0.1:64879 - "POST /feedback HTTP/1.1" 201 Created
+INFO:     127.0.0.1:64879 - "POST /feedback HTTP/1.1" 201 Created
+INFO:     127.0.0.1:64879 - "POST /feedback HTTP/1.1" 201 Created
+INFO:     127.0.0.1:64879 - "POST /feedback HTTP/1.1" 201 Created
+INFO:     127.0.0.1:64879 - "POST /feedback HTTP/1.1" 201 Created
+INFO:     127.0.0.1:64879 - "POST /feedback HTTP/1.1" 201 Created
+INFO:     127.0.0.1:64879 - "POST /feedback HTTP/1.1" 201 Created
+INFO:     127.0.0.1:64879 - "POST /feedback HTTP/1.1" 201 Created
+INFO:     127.0.0.1:64879 - "POST /feedback HTTP/1.1" 201 Created
+INFO:     127.0.0.1:64879 - "POST /feedback HTTP/1.1" 201 Created
+INFO:     127.0.0.1:64879 - "POST /feedback HTTP/1.1" 201 Created
+INFO:     127.0.0.1:64879 - "POST /feedback HTTP/1.1" 201 Created
+INFO:     127.0.0.1:64879 - "POST /feedback HTTP/1.1" 201 Created
+INFO:     127.0.0.1:64879 - "POST /feedback HTTP/1.1" 201 Created
+INFO:     127.0.0.1:64879 - "POST /feedback HTTP/1.1" 201 Created
+INFO:     127.0.0.1:64879 - "POST /feedback HTTP/1.1" 201 Created
+INFO:     127.0.0.1:64879 - "POST /feedback HTTP/1.1" 201 Created
+INFO:     127.0.0.1:64879 - "POST /feedback HTTP/1.1" 201 Created
+INFO:     127.0.0.1:64879 - "POST /feedback HTTP/1.1" 201 Created
+INFO:     127.0.0.1:64879 - "POST /feedback HTTP/1.1" 201 Created
+INFO:     127.0.0.1:64879 - "POST /feedback HTTP/1.1" 201 Created
+INFO:     127.0.0.1:64879 - "POST /feedback HTTP/1.1" 201 Created
+INFO:     127.0.0.1:64879 - "POST /feedback HTTP/1.1" 201 Created
+INFO:     127.0.0.1:64879 - "POST /feedback HTTP/1.1" 201 Created
+INFO:     127.0.0.1:64879 - "POST /feedback HTTP/1.1" 201 Created
+INFO:     127.0.0.1:64879 - "POST /feedback HTTP/1.1" 201 Created
+INFO:     127.0.0.1:64879 - "POST /feedback HTTP/1.1" 201 Created
+INFO:     127.0.0.1:64879 - "POST /feedback HTTP/1.1" 201 Created
+INFO:     127.0.0.1:64879 - "POST /feedback HTTP/1.1" 201 Created
+INFO:     127.0.0.1:64879 - "POST /feedback HTTP/1.1" 201 Created
+INFO:     127.0.0.1:64879 - "POST /feedback HTTP/1.1" 201 Created
+INFO:     127.0.0.1:64879 - "POST /feedback HTTP/1.1" 201 Created
+INFO:     127.0.0.1:64879 - "POST /feedback HTTP/1.1" 201 Created
+INFO:     127.0.0.1:64879 - "POST /feedback HTTP/1.1" 201 Created
+INFO:     127.0.0.1:64879 - "POST /feedback HTTP/1.1" 201 Created
+INFO:     127.0.0.1:64879 - "POST /feedback HTTP/1.1" 201 Created
+INFO:     127.0.0.1:64879 - "POST /feedback HTTP/1.1" 201 Created
+INFO:     127.0.0.1:64879 - "POST /feedback HTTP/1.1" 201 Created
+INFO:     127.0.0.1:64879 - "POST /feedback HTTP/1.1" 201 Created
+INFO:     127.0.0.1:64879 - "POST /feedback HTTP/1.1" 201 Created
+INFO:     127.0.0.1:64879 - "POST /feedback HTTP/1.1" 201 Created
+INFO:     127.0.0.1:64879 - "POST /predict HTTP/1.1" 422 Unprocessable Entity
+INFO:     127.0.0.1:62852 - "GET /health/ready HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62853 - "POST /predict HTTP/1.1" 200 OK
+2026-11-08 15:06:51,818 WARNING psycopg.pool discarding closed connection: <psycopg.Connection [BAD] at 0x1d91fb14260>
+2026-11-08 15:06:51,818 WARNING api_prediction PostgreSQL indisponible : consuming input failed: could not receive data from server: Software caused connection abort (0x00002745/10053)
+INFO:     127.0.0.1:62857 - "GET /health/ready HTTP/1.1" 503 Service Unavailable
+2026-11-08 15:06:51,861 WARNING psycopg.pool discarding closed connection: <psycopg.Connection [BAD] at 0x17bd6cc4110>
+2026-11-08 15:06:51,861 ERROR api_prediction Transaction de traçabilité annulée : consuming input failed: could not receive data from server: Software caused connection abort (0x00002745/10053)
+INFO:     127.0.0.1:62859 - "POST /predict HTTP/1.1" 503 Service Unavailable
+2026-11-08 15:06:54,832 WARNING psycopg.pool error connecting in 'pool-1': connection timeout expired
+2026-11-08 15:06:54,878 WARNING psycopg.pool error connecting in 'pool-1': connection timeout expired
+2026-11-08 15:06:54,879 WARNING psycopg.pool error connecting in 'pool-1': connection timeout expired
+INFO:     127.0.0.1:62874 - "GET /health/ready HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62875 - "GET /health/ready HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62876 - "POST /predict HTTP/1.1" 200 OK

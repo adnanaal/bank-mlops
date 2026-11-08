@@ -1,0 +1,408 @@
+14:39:30.983 | INFO    | Flow run 'military-groundhog' - Beginning flow run 'military-groundhog' for flow 'bank-training-pipeline'
+14:39:30.987 | INFO    | Flow run 'military-groundhog' - View at http://localhost:4200/runs/flow-run/8dca8ac7-ad26-4ac4-84fe-1d5b62cc99ef
+14:39:30.997 | INFO    | Task run 'ingestion-fe6' - Ingestion : config=configs/config.json, lot demandé=data/landing/2009-09.csv, déclencheur=demo-mlflow-arrete
+14:39:36.613 | WARNING | urllib3.connectionpool - Retrying (Retry(total=1, connect=1, read=2, redirect=2, status=2)) after connection broken by 'NewConnectionError("HTTPConnection(host='localhost', port=7281): Failed to establish a new connection: [WinError 10061] Aucune connexion n’a pu être établie car l’ordinateur cible l’a expressément refusée")': /api/2.0/mlflow/experiments/get-by-name?experiment_name=bank-mlops
+14:39:43.273 | WARNING | urllib3.connectionpool - Retrying (Retry(total=0, connect=0, read=2, redirect=2, status=2)) after connection broken by 'NewConnectionError("HTTPConnection(host='localhost', port=7281): Failed to establish a new connection: [WinError 10061] Aucune connexion n’a pu être établie car l’ordinateur cible l’a expressément refusée")': /api/2.0/mlflow/experiments/get-by-name?experiment_name=bank-mlops
+14:39:47.329 | ERROR   | Task run 'ingestion-fe6' - Task run failed with exception: MlflowException('API request to http://localhost:7281/api/2.0/mlflow/experiments/get-by-name failed with exception HTTPConnectionPool(host=\'localhost\', port=7281): Max retries exceeded with url: /api/2.0/mlflow/experiments/get-by-name?experiment_name=bank-mlops (Caused by NewConnectionError("HTTPConnection(host=\'localhost\', port=7281): Failed to establish a new connection: [WinError 10061] Aucune connexion n’a pu être établie car l’ordinateur cible l’a expressément refusée"))')
+Traceback (most recent call last):
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\.venv\Lib\site-packages\urllib3\connection.py", line 239, in _new_conn
+    sock = connection.create_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\.venv\Lib\site-packages\urllib3\util\connection.py", line 85, in create_connection
+    raise err
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\.venv\Lib\site-packages\urllib3\util\connection.py", line 73, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [WinError 10061] Aucune connexion n’a pu être établie car l’ordinateur cible l’a expressément refusée
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\.venv\Lib\site-packages\urllib3\connectionpool.py", line 793, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\.venv\Lib\site-packages\urllib3\connectionpool.py", line 499, in _make_request
+    conn.request(
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\.venv\Lib\site-packages\urllib3\connection.py", line 567, in request
+    self.endheaders()
+  File "C:\Users\jojo\AppData\Roaming\uv\python\cpython-3.12-windows-x86_64-none\Lib\http\client.py", line 1381, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "C:\Users\jojo\AppData\Roaming\uv\python\cpython-3.12-windows-x86_64-none\Lib\http\client.py", line 1141, in _send_output
+    self.send(msg)
+  File "C:\Users\jojo\AppData\Roaming\uv\python\cpython-3.12-windows-x86_64-none\Lib\http\client.py", line 1085, in send
+    self.connect()
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\.venv\Lib\site-packages\urllib3\connection.py", line 398, in connect
+    self.sock = self._new_conn()
+                ^^^^^^^^^^^^^^^^
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\.venv\Lib\site-packages\urllib3\connection.py", line 254, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: HTTPConnection(host='localhost', port=7281): Failed to establish a new connection: [WinError 10061] Aucune connexion n’a pu être établie car l’ordinateur cible l’a expressément refusée
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\.venv\Lib\site-packages\requests\adapters.py", line 696, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\.venv\Lib\site-packages\urllib3\connectionpool.py", line 886, in urlopen
+    return self.urlopen(
+           ^^^^^^^^^^^^^
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\.venv\Lib\site-packages\urllib3\connectionpool.py", line 886, in urlopen
+    return self.urlopen(
+           ^^^^^^^^^^^^^
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\.venv\Lib\site-packages\urllib3\connectionpool.py", line 847, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\.venv\Lib\site-packages\urllib3\util\retry.py", line 555, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='localhost', port=7281): Max retries exceeded with url: /api/2.0/mlflow/experiments/get-by-name?experiment_name=bank-mlops (Caused by NewConnectionError("HTTPConnection(host='localhost', port=7281): Failed to establish a new connection: [WinError 10061] Aucune connexion n’a pu être établie car l’ordinateur cible l’a expressément refusée"))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\.venv\Lib\site-packages\mlflow\utils\rest_utils.py", line 295, in http_request
+    return _get_http_response_with_retries(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\.venv\Lib\site-packages\mlflow\utils\request_utils.py", line 282, in _get_http_response_with_retries
+    return session.request(method, url, allow_redirects=allow_redirects, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\.venv\Lib\site-packages\requests\sessions.py", line 651, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\.venv\Lib\site-packages\requests\sessions.py", line 784, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\.venv\Lib\site-packages\requests\adapters.py", line 729, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='localhost', port=7281): Max retries exceeded with url: /api/2.0/mlflow/experiments/get-by-name?experiment_name=bank-mlops (Caused by NewConnectionError("HTTPConnection(host='localhost', port=7281): Failed to establish a new connection: [WinError 10061] Aucune connexion n’a pu être établie car l’ordinateur cible l’a expressément refusée"))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\.venv\Lib\site-packages\prefect\task_engine.py", line 1021, in run_context
+    yield self
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\.venv\Lib\site-packages\prefect\task_engine.py", line 1684, in run_task_sync
+    engine.call_task_fn(txn)
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\.venv\Lib\site-packages\prefect\task_engine.py", line 1038, in call_task_fn
+    result = call_with_parameters(self.task.fn, parameters)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\.venv\Lib\site-packages\prefect\utilities\callables\__init__.py", line 348, in call_with_parameters
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\orchestration\tasks.py", line 39, in ingestion
+    loaded = load_data(config_path, batch=batch, trigger=trigger)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\src\ingestion.py", line 99, in load_data
+    run_id = tracking.start_run(config['mlflow']['experiment'], run_name, {
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\src\tracking.py", line 53, in start_run
+    experiment = mlflow.set_experiment(experiment_name)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\.venv\Lib\site-packages\mlflow\tracking\fluent.py", line 208, in set_experiment
+    experiment = client.get_experiment_by_name(experiment_name)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\.venv\Lib\site-packages\mlflow\tracking\_tracking_service\client.py", line 282, in get_experiment_by_name
+    return self.store.get_experiment_by_name(name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\.venv\Lib\site-packages\mlflow\store\tracking\rest_store.py", line 1436, in get_experiment_by_name
+    response_proto = self._call_endpoint(GetExperimentByName, req_body)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\.venv\Lib\site-packages\mlflow\store\tracking\rest_store.py", line 269, in _call_endpoint
+    return call_endpoint(
+           ^^^^^^^^^^^^^^
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\.venv\Lib\site-packages\mlflow\utils\rest_utils.py", line 668, in call_endpoint
+    response = http_request(**call_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\.venv\Lib\site-packages\mlflow\utils\rest_utils.py", line 318, in http_request
+    raise MlflowException(f"API request to {url} failed with exception {e}")
+mlflow.exceptions.MlflowException: API request to http://localhost:7281/api/2.0/mlflow/experiments/get-by-name failed with exception HTTPConnectionPool(host='localhost', port=7281): Max retries exceeded with url: /api/2.0/mlflow/experiments/get-by-name?experiment_name=bank-mlops (Caused by NewConnectionError("HTTPConnection(host='localhost', port=7281): Failed to establish a new connection: [WinError 10061] Aucune connexion n’a pu être établie car l’ordinateur cible l’a expressément refusée"))
+14:39:47.496 | ERROR   | Task run 'ingestion-fe6' - Finished in state Failed('Task run encountered an exception MlflowException: API request to http://localhost:7281/api/2.0/mlflow/experiments/get-by-name failed with exception HTTPConnectionPool(host=\'localhost\', port=7281): Max retries exceeded with url: /api/2.0/mlflow/experiments/get-by-name?experiment_name=bank-mlops (Caused by NewConnectionError("HTTPConnection(host=\'localhost\', port=7281): Failed to establish a new connection: [WinError 10061] Aucune connexion n’a pu être établie car l’ordinateur cible l’a expressément refusée"))')
+14:39:48.009 | ERROR   | Flow run 'military-groundhog' - Encountered exception during execution: MlflowException('API request to http://localhost:7281/api/2.0/mlflow/experiments/get-by-name failed with exception HTTPConnectionPool(host=\'localhost\', port=7281): Max retries exceeded with url: /api/2.0/mlflow/experiments/get-by-name?experiment_name=bank-mlops (Caused by NewConnectionError("HTTPConnection(host=\'localhost\', port=7281): Failed to establish a new connection: [WinError 10061] Aucune connexion n’a pu être établie car l’ordinateur cible l’a expressément refusée"))')
+Traceback (most recent call last):
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\.venv\Lib\site-packages\urllib3\connection.py", line 239, in _new_conn
+    sock = connection.create_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\.venv\Lib\site-packages\urllib3\util\connection.py", line 85, in create_connection
+    raise err
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\.venv\Lib\site-packages\urllib3\util\connection.py", line 73, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [WinError 10061] Aucune connexion n’a pu être établie car l’ordinateur cible l’a expressément refusée
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\.venv\Lib\site-packages\urllib3\connectionpool.py", line 793, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\.venv\Lib\site-packages\urllib3\connectionpool.py", line 499, in _make_request
+    conn.request(
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\.venv\Lib\site-packages\urllib3\connection.py", line 567, in request
+    self.endheaders()
+  File "C:\Users\jojo\AppData\Roaming\uv\python\cpython-3.12-windows-x86_64-none\Lib\http\client.py", line 1381, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "C:\Users\jojo\AppData\Roaming\uv\python\cpython-3.12-windows-x86_64-none\Lib\http\client.py", line 1141, in _send_output
+    self.send(msg)
+  File "C:\Users\jojo\AppData\Roaming\uv\python\cpython-3.12-windows-x86_64-none\Lib\http\client.py", line 1085, in send
+    self.connect()
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\.venv\Lib\site-packages\urllib3\connection.py", line 398, in connect
+    self.sock = self._new_conn()
+                ^^^^^^^^^^^^^^^^
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\.venv\Lib\site-packages\urllib3\connection.py", line 254, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: HTTPConnection(host='localhost', port=7281): Failed to establish a new connection: [WinError 10061] Aucune connexion n’a pu être établie car l’ordinateur cible l’a expressément refusée
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\.venv\Lib\site-packages\requests\adapters.py", line 696, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\.venv\Lib\site-packages\urllib3\connectionpool.py", line 886, in urlopen
+    return self.urlopen(
+           ^^^^^^^^^^^^^
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\.venv\Lib\site-packages\urllib3\connectionpool.py", line 886, in urlopen
+    return self.urlopen(
+           ^^^^^^^^^^^^^
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\.venv\Lib\site-packages\urllib3\connectionpool.py", line 847, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\.venv\Lib\site-packages\urllib3\util\retry.py", line 555, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='localhost', port=7281): Max retries exceeded with url: /api/2.0/mlflow/experiments/get-by-name?experiment_name=bank-mlops (Caused by NewConnectionError("HTTPConnection(host='localhost', port=7281): Failed to establish a new connection: [WinError 10061] Aucune connexion n’a pu être établie car l’ordinateur cible l’a expressément refusée"))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\.venv\Lib\site-packages\mlflow\utils\rest_utils.py", line 295, in http_request
+    return _get_http_response_with_retries(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\.venv\Lib\site-packages\mlflow\utils\request_utils.py", line 282, in _get_http_response_with_retries
+    return session.request(method, url, allow_redirects=allow_redirects, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\.venv\Lib\site-packages\requests\sessions.py", line 651, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\.venv\Lib\site-packages\requests\sessions.py", line 784, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\.venv\Lib\site-packages\requests\adapters.py", line 729, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='localhost', port=7281): Max retries exceeded with url: /api/2.0/mlflow/experiments/get-by-name?experiment_name=bank-mlops (Caused by NewConnectionError("HTTPConnection(host='localhost', port=7281): Failed to establish a new connection: [WinError 10061] Aucune connexion n’a pu être établie car l’ordinateur cible l’a expressément refusée"))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\.venv\Lib\site-packages\prefect\flow_engine.py", line 1330, in run_context
+    yield self
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\.venv\Lib\site-packages\prefect\flow_engine.py", line 2111, in run_flow_sync
+    engine.call_flow_fn()
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\.venv\Lib\site-packages\prefect\flow_engine.py", line 1350, in call_flow_fn
+    result = call_with_parameters(self.flow.fn, self.parameters)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\.venv\Lib\site-packages\prefect\utilities\callables\__init__.py", line 348, in call_with_parameters
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\main.py", line 18, in main
+    data = ingestion(config_path, batch, trigger)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\.venv\Lib\site-packages\prefect\tasks.py", line 1227, in __call__
+    return run_task(
+           ^^^^^^^^^
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\.venv\Lib\site-packages\prefect\task_engine.py", line 1917, in run_task
+    return run_task_sync(**kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\.venv\Lib\site-packages\prefect\task_engine.py", line 1687, in run_task_sync
+    return engine.state if return_type == "state" else engine.result()
+                                                       ^^^^^^^^^^^^^^^
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\.venv\Lib\site-packages\prefect\task_engine.py", line 617, in result
+    raise self._raised
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\.venv\Lib\site-packages\prefect\task_engine.py", line 1021, in run_context
+    yield self
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\.venv\Lib\site-packages\prefect\task_engine.py", line 1684, in run_task_sync
+    engine.call_task_fn(txn)
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\.venv\Lib\site-packages\prefect\task_engine.py", line 1038, in call_task_fn
+    result = call_with_parameters(self.task.fn, parameters)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\.venv\Lib\site-packages\prefect\utilities\callables\__init__.py", line 348, in call_with_parameters
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\orchestration\tasks.py", line 39, in ingestion
+    loaded = load_data(config_path, batch=batch, trigger=trigger)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\src\ingestion.py", line 99, in load_data
+    run_id = tracking.start_run(config['mlflow']['experiment'], run_name, {
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\src\tracking.py", line 53, in start_run
+    experiment = mlflow.set_experiment(experiment_name)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\.venv\Lib\site-packages\mlflow\tracking\fluent.py", line 208, in set_experiment
+    experiment = client.get_experiment_by_name(experiment_name)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\.venv\Lib\site-packages\mlflow\tracking\_tracking_service\client.py", line 282, in get_experiment_by_name
+    return self.store.get_experiment_by_name(name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\.venv\Lib\site-packages\mlflow\store\tracking\rest_store.py", line 1436, in get_experiment_by_name
+    response_proto = self._call_endpoint(GetExperimentByName, req_body)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\.venv\Lib\site-packages\mlflow\store\tracking\rest_store.py", line 269, in _call_endpoint
+    return call_endpoint(
+           ^^^^^^^^^^^^^^
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\.venv\Lib\site-packages\mlflow\utils\rest_utils.py", line 668, in call_endpoint
+    response = http_request(**call_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\.venv\Lib\site-packages\mlflow\utils\rest_utils.py", line 318, in http_request
+    raise MlflowException(f"API request to {url} failed with exception {e}")
+mlflow.exceptions.MlflowException: API request to http://localhost:7281/api/2.0/mlflow/experiments/get-by-name failed with exception HTTPConnectionPool(host='localhost', port=7281): Max retries exceeded with url: /api/2.0/mlflow/experiments/get-by-name?experiment_name=bank-mlops (Caused by NewConnectionError("HTTPConnection(host='localhost', port=7281): Failed to establish a new connection: [WinError 10061] Aucune connexion n’a pu être établie car l’ordinateur cible l’a expressément refusée"))
+14:39:50.099 | INFO    | Flow run 'military-groundhog' - Running hook 'on_failure' in response to entering state 'Failed'
+14:39:50.263 | INFO    | Flow run 'military-groundhog' - Hook 'on_failure' finished running successfully
+14:39:50.265 | INFO    | Flow run 'military-groundhog' - Finished in state Failed('Flow run encountered an exception: MlflowException: API request to http://localhost:7281/api/2.0/mlflow/experiments/get-by-name failed with exception HTTPConnectionPool(host=\'localhost\', port=7281): Max retries exceeded with url: /api/2.0/mlflow/experiments/get-by-name?experiment_name=bank-mlops (Caused by NewConnectionError("HTTPConnection(host=\'localhost\', port=7281): Failed to establish a new connection: [WinError 10061] Aucune connexion n’a pu être établie car l’ordinateur cible l’a expressément refusée"))')
+Traceback (most recent call last):
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\.venv\Lib\site-packages\urllib3\connection.py", line 239, in _new_conn
+    sock = connection.create_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\.venv\Lib\site-packages\urllib3\util\connection.py", line 85, in create_connection
+    raise err
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\.venv\Lib\site-packages\urllib3\util\connection.py", line 73, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [WinError 10061] Aucune connexion n’a pu être établie car l’ordinateur cible l’a expressément refusée
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\.venv\Lib\site-packages\urllib3\connectionpool.py", line 793, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\.venv\Lib\site-packages\urllib3\connectionpool.py", line 499, in _make_request
+    conn.request(
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\.venv\Lib\site-packages\urllib3\connection.py", line 567, in request
+    self.endheaders()
+  File "C:\Users\jojo\AppData\Roaming\uv\python\cpython-3.12-windows-x86_64-none\Lib\http\client.py", line 1381, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "C:\Users\jojo\AppData\Roaming\uv\python\cpython-3.12-windows-x86_64-none\Lib\http\client.py", line 1141, in _send_output
+    self.send(msg)
+  File "C:\Users\jojo\AppData\Roaming\uv\python\cpython-3.12-windows-x86_64-none\Lib\http\client.py", line 1085, in send
+    self.connect()
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\.venv\Lib\site-packages\urllib3\connection.py", line 398, in connect
+    self.sock = self._new_conn()
+                ^^^^^^^^^^^^^^^^
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\.venv\Lib\site-packages\urllib3\connection.py", line 254, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: HTTPConnection(host='localhost', port=7281): Failed to establish a new connection: [WinError 10061] Aucune connexion n’a pu être établie car l’ordinateur cible l’a expressément refusée
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\.venv\Lib\site-packages\requests\adapters.py", line 696, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\.venv\Lib\site-packages\urllib3\connectionpool.py", line 886, in urlopen
+    return self.urlopen(
+           ^^^^^^^^^^^^^
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\.venv\Lib\site-packages\urllib3\connectionpool.py", line 886, in urlopen
+    return self.urlopen(
+           ^^^^^^^^^^^^^
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\.venv\Lib\site-packages\urllib3\connectionpool.py", line 847, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\.venv\Lib\site-packages\urllib3\util\retry.py", line 555, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='localhost', port=7281): Max retries exceeded with url: /api/2.0/mlflow/experiments/get-by-name?experiment_name=bank-mlops (Caused by NewConnectionError("HTTPConnection(host='localhost', port=7281): Failed to establish a new connection: [WinError 10061] Aucune connexion n’a pu être établie car l’ordinateur cible l’a expressément refusée"))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\.venv\Lib\site-packages\mlflow\utils\rest_utils.py", line 295, in http_request
+    return _get_http_response_with_retries(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\.venv\Lib\site-packages\mlflow\utils\request_utils.py", line 282, in _get_http_response_with_retries
+    return session.request(method, url, allow_redirects=allow_redirects, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\.venv\Lib\site-packages\requests\sessions.py", line 651, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\.venv\Lib\site-packages\requests\sessions.py", line 784, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\.venv\Lib\site-packages\requests\adapters.py", line 729, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='localhost', port=7281): Max retries exceeded with url: /api/2.0/mlflow/experiments/get-by-name?experiment_name=bank-mlops (Caused by NewConnectionError("HTTPConnection(host='localhost', port=7281): Failed to establish a new connection: [WinError 10061] Aucune connexion n’a pu être établie car l’ordinateur cible l’a expressément refusée"))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\main.py", line 30, in <module>
+    main(args.config, args.batch, args.trigger)
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\.venv\Lib\site-packages\prefect\flows.py", line 1887, in __call__
+    return run_flow(
+           ^^^^^^^^^
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\.venv\Lib\site-packages\prefect\flow_engine.py", line 2268, in run_flow
+    ret_val = run_flow_sync(**kwargs)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\.venv\Lib\site-packages\prefect\flow_engine.py", line 2113, in run_flow_sync
+    return engine.state if return_type == "state" else engine.result()
+                                                       ^^^^^^^^^^^^^^^
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\.venv\Lib\site-packages\prefect\flow_engine.py", line 788, in result
+    raise self._raised
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\.venv\Lib\site-packages\prefect\flow_engine.py", line 1330, in run_context
+    yield self
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\.venv\Lib\site-packages\prefect\flow_engine.py", line 2111, in run_flow_sync
+    engine.call_flow_fn()
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\.venv\Lib\site-packages\prefect\flow_engine.py", line 1350, in call_flow_fn
+    result = call_with_parameters(self.flow.fn, self.parameters)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\.venv\Lib\site-packages\prefect\utilities\callables\__init__.py", line 348, in call_with_parameters
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\main.py", line 18, in main
+    data = ingestion(config_path, batch, trigger)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\.venv\Lib\site-packages\prefect\tasks.py", line 1227, in __call__
+    return run_task(
+           ^^^^^^^^^
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\.venv\Lib\site-packages\prefect\task_engine.py", line 1917, in run_task
+    return run_task_sync(**kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\.venv\Lib\site-packages\prefect\task_engine.py", line 1687, in run_task_sync
+    return engine.state if return_type == "state" else engine.result()
+                                                       ^^^^^^^^^^^^^^^
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\.venv\Lib\site-packages\prefect\task_engine.py", line 617, in result
+    raise self._raised
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\.venv\Lib\site-packages\prefect\task_engine.py", line 1021, in run_context
+    yield self
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\.venv\Lib\site-packages\prefect\task_engine.py", line 1684, in run_task_sync
+    engine.call_task_fn(txn)
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\.venv\Lib\site-packages\prefect\task_engine.py", line 1038, in call_task_fn
+    result = call_with_parameters(self.task.fn, parameters)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\.venv\Lib\site-packages\prefect\utilities\callables\__init__.py", line 348, in call_with_parameters
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\orchestration\tasks.py", line 39, in ingestion
+    loaded = load_data(config_path, batch=batch, trigger=trigger)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\src\ingestion.py", line 99, in load_data
+    run_id = tracking.start_run(config['mlflow']['experiment'], run_name, {
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\src\tracking.py", line 53, in start_run
+    experiment = mlflow.set_experiment(experiment_name)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\.venv\Lib\site-packages\mlflow\tracking\fluent.py", line 208, in set_experiment
+    experiment = client.get_experiment_by_name(experiment_name)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\.venv\Lib\site-packages\mlflow\tracking\_tracking_service\client.py", line 282, in get_experiment_by_name
+    return self.store.get_experiment_by_name(name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\.venv\Lib\site-packages\mlflow\store\tracking\rest_store.py", line 1436, in get_experiment_by_name
+    response_proto = self._call_endpoint(GetExperimentByName, req_body)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\.venv\Lib\site-packages\mlflow\store\tracking\rest_store.py", line 269, in _call_endpoint
+    return call_endpoint(
+           ^^^^^^^^^^^^^^
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\.venv\Lib\site-packages\mlflow\utils\rest_utils.py", line 668, in call_endpoint
+    response = http_request(**call_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jojo\Documents\5MLDE\bank-mlops\.venv\Lib\site-packages\mlflow\utils\rest_utils.py", line 318, in http_request
+    raise MlflowException(f"API request to {url} failed with exception {e}")
+mlflow.exceptions.MlflowException: API request to http://localhost:7281/api/2.0/mlflow/experiments/get-by-name failed with exception HTTPConnectionPool(host='localhost', port=7281): Max retries exceeded with url: /api/2.0/mlflow/experiments/get-by-name?experiment_name=bank-mlops (Caused by NewConnectionError("HTTPConnection(host='localhost', port=7281): Failed to establish a new connection: [WinError 10061] Aucune connexion n’a pu être établie car l’ordinateur cible l’a expressément refusée"))

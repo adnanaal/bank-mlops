@@ -1,0 +1,18 @@
+OK          1 lignes  #1   Requêtes (tentatives)
+OK          1 lignes  #2   Taux d'erreur
+OK          1 lignes  #3   Clients scorés (succès)
+OK          1 lignes  #4   Version servie (dernière prédiction)
+OK          1 lignes  #5   p95 traitement /predict
+OK         56 lignes  #6   Requêtes par seconde (succès et tentatives)
+OK         56 lignes  #7   Clients scorés par seconde
+OK          4 lignes  #8   Erreurs par endpoint et code
+OK         56 lignes  #9   Durée de traitement p50 / p95 / p99 (ms) par endpoint
+OK         56 lignes  #10  Durée d'inférence p95 (ms), série distincte
+OK          2 lignes  #11  Taille des lots (requêtes /predict/batch)
+OK         19 lignes  #12  Activité par worker (instance_id / PID)
+OK         56 lignes  #13  Prédictions par version de modèle
+OK          1 lignes  #14  Feedbacks : volume, avis favorables, couverture
+OK          2 lignes  #15  Qualité observée (labels réels, hors loadtest/synthétiques)
+OK          1 lignes  #16  Labels observés de test (loadtest), pour vérifier le mécanisme
+OK         14 lignes  #17  Exécutions du pipeline par issue
+OK         27 lignes  #18  Derniers traitements

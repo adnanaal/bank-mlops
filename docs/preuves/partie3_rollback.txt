@@ -1,0 +1,50 @@
+{
+  "at": "2026-11-08T14:07:09.381249+00:00",
+  "model": "bank-subscription-clf",
+  "alias": "champion",
+  "previous_version": 9,
+  "new_version": 8,
+  "actor": "jojo",
+  "reason": "demo : retour arriere apres anomalie constatee sur v9",
+  "policy_id": "bank-qualif-v1",
+  "run_id": "38eb67112312449eba2a2ee54c93fbfa",
+  "rollback": true
+}
+
+Alias champion -> version 8
+
+Versions :
+  v  1  pending           AUC=-          lot=corpus-initial             
+  v  2  rejected          AUC=0.357234   lot=corpus-initial             not-selected: qualification non satisfaite
+  v  3  production-ready  AUC=0.733249   lot=2009-03:c28873841d03       selected: aucun champion actuel
+  v  4  production-ready  AUC=0.786794   lot=2009-04:92741a551274       selected: AUC 0.7868 >= champion 0.7332 - 0.005
+  v  5  production-ready  AUC=0.763807   lot=2009-05:ef22aa86a0de       not-selected: AUC 0.7638 < champion 0.7868 - 0.005
+  v  6  production-ready  AUC=0.787277   lot=2009-06:85ff9d50cb2e       selected: AUC 0.7873 >= champion 0.7868 - 0.005
+  v  7  production-ready  AUC=0.790290   lot=2009-07:105d5eb36b6a       selected: AUC 0.7903 >= champion 0.7873 - 0.005
+  v  8  production-ready  AUC=0.791213   lot=2009-08:0ebde1d71df5       selected: AUC 0.7912 >= champion 0.7903 - 0.005
+  v  9  production-ready  AUC=0.791394   lot=2009-09:b0eef3d0795e       selected: AUC 0.7914 >= champion 0.7912 - 0.005
+  v 10  production-ready  AUC=0.719085   lot=2009-10:109cf22ff550       not-selected: AUC 0.7191 < champion 0.7914 - 0.005
+
+Historique des sélections :
+  2026-11-07T15:13:01  vNone -> v3  par pipeline : sélection automatique : aucun champion actuel
+  2026-11-07T15:13:40  v3 -> v4  par pipeline : sélection automatique : AUC 0.7868 >= champion 0.7332 - 0.005
+  2026-11-07T15:14:53  v4 -> v6  par pipeline : sélection automatique : AUC 0.7873 >= champion 0.7868 - 0.005
+  2026-11-07T15:22:33  v6 -> v7  par pipeline : sélection automatique : AUC 0.7903 >= champion 0.7873 - 0.005
+  2026-11-08T13:38:17  v7 -> v8  par pipeline : sélection automatique : AUC 0.7912 >= champion 0.7903 - 0.005
+  2026-11-08T13:40:37  v8 -> v9  par pipeline : sélection automatique : AUC 0.7914 >= champion 0.7912 - 0.005
+  2026-11-08T14:07:09  v9 -> v8  par jojo : demo : retour arriere apres anomalie constatee sur v9
+{
+  "registered_name": "bank-subscription-clf",
+  "version": 8,
+  "resolved_from": "alias:champion",
+  "mlflow_run_id": "38eb67112312449eba2a2ee54c93fbfa",
+  "model_uri": "models:/bank-subscription-clf/8",
+  "source": "models:/m-e0cd654e07c746b0b809fff510f8b1b0",
+  "tracking_uri": "http://localhost:7281",
+  "qualification": "production-ready",
+  "qualification_policy": "bank-qualif-v1",
+  "decision_threshold": 0.5,
+  "resolved_at": "2026-11-08T14:07:15.703490+00:00"
+}
+    raise SelectionRefused(f'Version {version} non sélectionnable : ' + ' ; '.join(problems))
+src.registry.SelectionRefused: Version 2 non sélectionnable : qualification = 'rejected'

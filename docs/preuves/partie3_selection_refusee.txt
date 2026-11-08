@@ -1,0 +1,1 @@
+REFUS : Version 2 non sélectionnable : qualification = 'rejected'

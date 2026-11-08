@@ -1,0 +1,13 @@
+    endpoint    | http_status | requetes | clients 
+----------------+-------------+----------+---------
+ /feedback      |         201 |       77 |        
+ /predict       |         200 |       60 |      60
+ /predict       |         422 |        1 |        
+ /predict/batch |         200 |        5 |     100
+(4 rows)
+
+ total_requetes 
+----------------
+            143
+(1 row)
+

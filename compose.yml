@@ -1,0 +1,110 @@
+# Stack locale du projet (base : compose.yml du TP0 5MLDE, mêmes versions figées).
+# Lancement : docker compose up -d --wait   |   Arrêt : docker compose stop (ne jamais ajouter --volumes)
+name: bank-mlops
+
+services:
+  mlflow:
+    image: ghcr.io/mlflow/mlflow:v3.16.1
+    restart: unless-stopped
+    entrypoint: ["mlflow"]
+    command:
+      - server
+      - --host
+      - "0.0.0.0"
+      - --port
+      - "7281"
+      - --workers
+      - "1"
+      - --backend-store-uri
+      - sqlite:////mlflow/mlflow.db
+      - --serve-artifacts
+      - --artifacts-destination
+      - /mlflow/artifacts
+      - --allowed-hosts
+      - "localhost:*,127.0.0.1:*,mlflow:7281"
+    ports:
+      - "127.0.0.1:${MLFLOW_PORT:-7281}:7281"
+    volumes:
+      - mlflow_data:/mlflow
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:7281/health', timeout=5)"]
+      interval: 15s
+      timeout: 10s
+      retries: 10
+      start_period: 60s
+
+  prefect:
+    # Image du cours + SQLAlchemy 2.0.x (voir docker/prefect/Dockerfile : planificateur défaillant sinon)
+    build: ./docker/prefect
+    image: bank-mlops/prefect:3.8.7-sqla20
+    restart: unless-stopped
+    command: ["prefect", "server", "start", "--host", "0.0.0.0", "--port", "4200"]
+    environment:
+      PREFECT_HOME: /var/lib/prefect
+      PREFECT_SERVER_DATABASE_CONNECTION_URL: sqlite+aiosqlite:////var/lib/prefect/prefect.db
+      PREFECT_SERVER_UI_API_URL: "http://localhost:${PREFECT_PORT:-4200}/api"
+      PREFECT_API_URL: http://127.0.0.1:4200/api
+      PREFECT_SERVER_ANALYTICS_ENABLED: "false"
+    ports:
+      - "127.0.0.1:${PREFECT_PORT:-4200}:4200"
+    volumes:
+      - prefect_data:/var/lib/prefect
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:4200/api/health', timeout=5)"]
+      interval: 15s
+      timeout: 10s
+      retries: 10
+      start_period: 60s
+
+  postgres:
+    image: postgres:18.6-bookworm
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: bank_api
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: "${POSTGRES_PASSWORD:-5mlde-local-postgres}"
+      API_DB_PASSWORD: "${API_DB_PASSWORD:-5mlde-local-api}"
+      GRAFANA_DB_PASSWORD: "${GRAFANA_DB_PASSWORD:-5mlde-local-grafana}"
+    ports:
+      - "127.0.0.1:${POSTGRES_PORT:-15432}:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql
+      - ./db/init-db.sql:/docker-entrypoint-initdb.d/010-tracing.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -h 127.0.0.1 -U postgres -d bank_api"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+      start_period: 30s
+
+  grafana:
+    image: grafana/grafana:13.2.3
+    restart: unless-stopped
+    environment:
+      GF_SECURITY_ADMIN_USER: "${GRAFANA_ADMIN_USER:-admin}"
+      GF_SECURITY_ADMIN_PASSWORD: "${GRAFANA_ADMIN_PASSWORD:-5mlde-local-admin}"
+      GF_USERS_ALLOW_SIGN_UP: "false"
+      GF_AUTH_ANONYMOUS_ENABLED: "false"
+      GF_ANALYTICS_REPORTING_ENABLED: "false"
+      GRAFANA_DB_PASSWORD: "${GRAFANA_DB_PASSWORD:-5mlde-local-grafana}"
+    depends_on:
+      postgres:
+        condition: service_healthy
+    ports:
+      - "127.0.0.1:${GRAFANA_PORT:-3000}:3000"
+    volumes:
+      - grafana_data:/var/lib/grafana
+      - ./grafana/provisioning:/etc/grafana/provisioning:ro
+      - ./grafana/dashboards:/var/lib/grafana/dashboards:ro
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://127.0.0.1:3000/api/health"]
+      interval: 15s
+      timeout: 10s
+      retries: 10
+      start_period: 30s
+
+volumes:
+  mlflow_data:
+  prefect_data:
+  grafana_data:
+  postgres_data:

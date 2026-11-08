@@ -1,0 +1,14 @@
+.venv/
+__pycache__/
+.pytest_cache/
+.ruff_cache/
+.env
+# Données : jamais dans Git (récupérées par scripts/download_data.py puis prepare_batches.py)
+data/
+runs/
+mlruns/
+load_tests/resultats/*.csv
+load_tests/resultats/*.html
+*.joblib
+*.log
+!docs/preuves/*.log

@@ -1,0 +1,487 @@
+Your deployments are being served and polling for scheduled runs!
+
+Deployments
+┌───────────────────────────────┐
+│ bank-batch-watcher/planifie   │
+│ bank-training-pipeline/manuel │
+└───────────────────────────────┘
+
+To trigger any of these deployments, use the following command:
+
+        $ prefect deployment run [DEPLOYMENT_NAME]
+
+You can also trigger your deployments via the Prefect UI: http://localhost:4200/deployments
+
+15:04:04.196 | INFO    | prefect.runner - 199 scheduled runs skipped (at capacity)
+15:04:09.954 | INFO    | Flow run 'responsible-deer' - Downloading flow code from storage at '.'
+15:04:14.205 | INFO    | prefect.runner - 200 scheduled runs skipped (at capacity)
+15:04:17.033 | INFO    | Flow run 'responsible-deer' - Beginning flow run 'responsible-deer' for flow 'bank-batch-watcher'
+15:04:17.034 | INFO    | Flow run 'responsible-deer' - View at http://localhost:4200/runs/flow-run/01a1b698-b340-7eb8-accb-6a366a0b68cb
+15:04:17.058 | INFO    | Flow run 'responsible-deer' - Lot détecté : 2009-10.csv (0 autre(s) en attente)
+15:04:17.665 | INFO    | Flow run 'cherry-impala' - Beginning subflow run 'cherry-impala' for flow 'bank-training-pipeline'
+15:04:17.666 | INFO    | Flow run 'cherry-impala' - View at http://localhost:4200/runs/flow-run/bbfa2135-e290-472d-8256-9afab1c83edf
+15:04:17.680 | INFO    | Task run 'ingestion-771' - Ingestion : config=C:\Users\jojo\Documents\5MLDE\bank-mlops\configs\config.json, lot demandé=C:\Users\jojo\Documents\5MLDE\bank-mlops\data\landing\2009-10.csv, déclencheur=schedule
+15:04:24.468 | INFO    | prefect.runner - 200 scheduled runs skipped (at capacity)
+15:04:24.642 | INFO    | great_expectations.data_context.types.base - Created temporary directory 'C:\Users\jojo\AppData\Local\Temp\tmpg5z4aml8' for ephemeral docs site
+15:04:31.556 | INFO    | Task run 'ingestion-771' - Lot 2009-10:109cf22ff550 validé ; snapshot 32842 lignes (sha 96c9697d8065) ; run MLflow 820293e218f1444d9037378060dbf8c4
+15:04:31.559 | INFO    | Task run 'ingestion-771' - Finished in state Completed()
+15:04:33.631 | INFO    | Task run 'pretraitement-e44' - Split stratifié : 26273 train, 6569 test, 6121 qualification (taux positifs train 0.087)
+15:04:33.635 | INFO    | Task run 'pretraitement-e44' - Finished in state Completed()
+15:04:34.490 | INFO    | Task run 'entrainement-cdc' - Régression logistique entraînée en 0.53 s
+15:04:34.493 | INFO    | Task run 'entrainement-cdc' - Finished in state Completed()
+2026/11/08 15:04:35 INFO mlflow.utils.uv_utils: Detected uv project: found uv.lock and pyproject.toml in C:\Users\jojo\Documents\5MLDE\bank-mlops
+15:04:36.193 | INFO    | prefect.runner - 200 scheduled runs skipped (at capacity)
+2026/11/08 15:04:37 WARNING mlflow.sklearn: Saving scikit-learn models in the pickle or cloudpickle format requires exercising caution because these formats rely on Python's object serialization mechanism, which can execute arbitrary code during deserialization. The recommended safe alternative is the 'skops' format. For more information, see: https://scikit-learn.org/stable/model_persistence.html
+2026/11/08 15:04:38 WARNING mlflow.utils.environment: Failed to resolve installed pip version. ``pip`` will be added to conda.yaml environment spec without a version specifier.
+Downloading artifacts:   0%|          | 0/22 [00:00<?, ?it/s]🏃 View run 20261108T140417_2009-10 at: http://localhost:7281/#/experiments/1/runs/820293e218f1444d9037378060dbf8c4
+🧪 View experiment at: http://localhost:7281/#/experiments/1
+Downloading artifacts:   5%|▍         | 1/22 [00:00<?, ?it/s]Downloading artifacts:   9%|▉         | 2/22 [00:00<?, ?it/s]Downloading artifacts:  14%|█▎        | 3/22 [00:00<?, ?it/s]Downloading artifacts:  18%|█▊        | 4/22 [00:00<?, ?it/s]Downloading artifacts:  23%|██▎       | 5/22 [00:00<?, ?it/s]Downloading artifacts:  27%|██▋       | 6/22 [00:00<00:00, 6003.30it/s]Downloading artifacts:  32%|███▏      | 7/22 [00:00<00:00, 7003.85it/s]Downloading artifacts:  36%|███▋      | 8/22 [00:00<00:00, 8004.40it/s]Downloading artifacts:  41%|████      | 9/22 [00:00<00:00, 9004.95it/s]Downloading artifacts:  45%|████▌     | 10/22 [00:00<00:00, 10005.50it/s]Downloading artifacts:  50%|█████     | 11/22 [00:00<00:00, 11006.05it/s]Downloading artifacts:  55%|█████▍    | 12/22 [00:00<00:00, 12006.60it/s]Downloading artifacts:  59%|█████▉    | 13/22 [00:00<00:00, 13007.15it/s]Downloading artifacts:  64%|██████▎   | 14/22 [00:00<00:00, 14007.69it/s]Downloading artifacts:  68%|██████▊   | 15/22 [00:00<00:00, 15008.24it/s]Downloading artifacts:  73%|███████▎  | 16/22 [00:00<00:00, 16008.79it/s]Downloading artifacts:  77%|███████▋  | 17/22 [00:00<00:00, 17009.34it/s]Downloading artifacts:  82%|████████▏ | 18/22 [00:00<00:00, 18009.89it/s]Downloading artifacts:  86%|████████▋ | 19/22 [00:00<00:00, 19010.44it/s]Downloading artifacts:  91%|█████████ | 20/22 [00:00<00:00, 20010.99it/s]Downloading artifacts:  95%|█████████▌| 21/22 [00:00<00:00, 10502.01it/s]Downloading artifacts: 100%|██████████| 22/22 [00:00<00:00, 7338.53it/s] Downloading artifacts: 100%|██████████| 22/22 [00:00<00:00, 7338.53it/s]
+Registered model 'bank-subscription-clf' already exists. Creating a new version of this model...
+2026/11/08 15:04:40 INFO mlflow.store.model_registry.abstract_store: Waiting up to 300 seconds for model version to finish creation. Model name: bank-subscription-clf, version 10
+Created version '10' of model 'bank-subscription-clf'.
+15:04:40.194 | INFO    | Task run 'publication-mlflow-779' - Finished in state Completed()
+Downloading artifacts:   0%|          | 0/22 [00:00<?, ?it/s]🏃 View run 20261108T140417_2009-10 at: http://localhost:7281/#/experiments/1/runs/820293e218f1444d9037378060dbf8c4
+🧪 View experiment at: http://localhost:7281/#/experiments/1
+Downloading artifacts:   5%|▍         | 1/22 [00:00<00:00, 777.59it/s]Downloading artifacts:   9%|▉         | 2/22 [00:00<00:01, 19.74it/s] Downloading artifacts:   9%|▉         | 2/22 [00:00<00:01, 19.74it/s]Downloading artifacts:  14%|█▎        | 3/22 [00:00<00:00, 19.74it/s]Downloading artifacts:  18%|█▊        | 4/22 [00:00<00:00, 19.74it/s]Downloading artifacts:  23%|██▎       | 5/22 [00:00<00:00, 19.74it/s]Downloading artifacts:  27%|██▋       | 6/22 [00:00<00:00, 26.97it/s]Downloading artifacts:  27%|██▋       | 6/22 [00:00<00:00, 26.97it/s]Downloading artifacts:  32%|███▏      | 7/22 [00:00<00:00, 26.97it/s]Downloading artifacts:  36%|███▋      | 8/22 [00:00<00:00, 26.97it/s]Downloading artifacts:  41%|████      | 9/22 [00:00<00:00, 26.97it/s]Downloading artifacts:  45%|████▌     | 10/22 [00:00<00:00, 30.62it/s]Downloading artifacts:  45%|████▌     | 10/22 [00:00<00:00, 30.62it/s]Downloading artifacts:  50%|█████     | 11/22 [00:00<00:00, 30.62it/s]Downloading artifacts:  55%|█████▍    | 12/22 [00:00<00:00, 30.62it/s]Downloading artifacts:  59%|█████▉    | 13/22 [00:00<00:00, 30.62it/s]Downloading artifacts:  64%|██████▎   | 14/22 [00:00<00:00, 30.62it/s]Downloading artifacts:  68%|██████▊   | 15/22 [00:00<00:00, 30.62it/s]Downloading artifacts:  73%|███████▎  | 16/22 [00:00<00:00, 38.57it/s]Downloading artifacts:  73%|███████▎  | 16/22 [00:00<00:00, 38.57it/s]Downloading artifacts:  77%|███████▋  | 17/22 [00:00<00:00, 38.57it/s]Downloading artifacts:  82%|████████▏ | 18/22 [00:00<00:00, 38.57it/s]Downloading artifacts:  86%|████████▋ | 19/22 [00:00<00:00, 38.57it/s]Downloading artifacts:  91%|█████████ | 20/22 [00:00<00:00, 38.57it/s]Downloading artifacts:  95%|█████████▌| 21/22 [00:02<00:00,  6.35it/s]Downloading artifacts:  95%|█████████▌| 21/22 [00:02<00:00,  6.35it/s]Downloading artifacts: 100%|██████████| 22/22 [00:02<00:00,  6.35it/s]Downloading artifacts: 100%|██████████| 22/22 [00:02<00:00,  8.80it/s]
+15:04:43.856 | INFO    | Task run 'evaluation-publication-21d' - Version 10 du modèle bank-subscription-clf : qualification=production-ready, sélection={'selected': False, 'reason': 'AUC 0.7191 < champion 0.7914 - 0.005'}, AUC qualif=0.7191
+15:04:43.860 | INFO    | Task run 'evaluation-publication-21d' - Finished in state Completed()
+15:04:46.735 | INFO    | Flow run 'cherry-impala' - Finished in state Completed()
+15:04:47.339 | INFO    | Flow run 'responsible-deer' - Finished in state Completed()
+🏃 View run 20261108T140417_2009-10 at: http://localhost:7281/#/experiments/1/runs/820293e218f1444d9037378060dbf8c4
+🧪 View experiment at: http://localhost:7281/#/experiments/1
+15:04:48.866 | INFO    | prefect.runner - 199 scheduled runs skipped (at capacity)
+15:04:54.755 | INFO    | Flow run 'reasonable-bullmastiff' - Downloading flow code from storage at '.'
+15:04:59.881 | INFO    | prefect.runner - 200 scheduled runs skipped (at capacity)
+15:05:01.770 | INFO    | Flow run 'reasonable-bullmastiff' - Beginning flow run 'reasonable-bullmastiff' for flow 'bank-batch-watcher'
+15:05:01.771 | INFO    | Flow run 'reasonable-bullmastiff' - View at http://localhost:4200/runs/flow-run/01a1b698-b340-7ff4-9d25-843367cdf018
+15:05:01.791 | INFO    | Flow run 'reasonable-bullmastiff' - Aucun lot en attente dans C:\Users\jojo\Documents\5MLDE\bank-mlops\data\landing
+15:05:02.964 | INFO    | Flow run 'reasonable-bullmastiff' - Finished in state Completed()
+15:05:03.844 | WARNING | EventsWorker - Still processing items: 1 items remaining...
+15:05:08.860 | INFO    | prefect.runner - 199 scheduled runs skipped (at capacity)
+15:05:14.558 | INFO    | Flow run 'natural-curassow' - Downloading flow code from storage at '.'
+15:05:20.978 | INFO    | prefect.runner - 200 scheduled runs skipped (at capacity)
+15:05:21.565 | INFO    | Flow run 'natural-curassow' - Beginning flow run 'natural-curassow' for flow 'bank-batch-watcher'
+15:05:21.567 | INFO    | Flow run 'natural-curassow' - View at http://localhost:4200/runs/flow-run/01a1b698-b340-7907-b785-6ee6cff464c7
+15:05:21.578 | INFO    | Flow run 'natural-curassow' - Aucun lot en attente dans C:\Users\jojo\Documents\5MLDE\bank-mlops\data\landing
+15:05:22.766 | INFO    | Flow run 'natural-curassow' - Finished in state Completed()
+15:05:23.637 | WARNING | EventsWorker - Still processing items: 1 items remaining...
+15:05:30.367 | INFO    | prefect.runner - 199 scheduled runs skipped (at capacity)
+15:05:36.152 | INFO    | Flow run 'wealthy-crow' - Downloading flow code from storage at '.'
+15:05:39.842 | INFO    | prefect.runner - 200 scheduled runs skipped (at capacity)
+15:05:43.167 | INFO    | Flow run 'wealthy-crow' - Beginning flow run 'wealthy-crow' for flow 'bank-batch-watcher'
+15:05:43.168 | INFO    | Flow run 'wealthy-crow' - View at http://localhost:4200/runs/flow-run/01a1b698-b340-7c92-ab52-fe603c92eb1d
+15:05:43.182 | INFO    | Flow run 'wealthy-crow' - Aucun lot en attente dans C:\Users\jojo\Documents\5MLDE\bank-mlops\data\landing
+15:05:44.376 | INFO    | Flow run 'wealthy-crow' - Finished in state Completed()
+15:05:45.235 | WARNING | EventsWorker - Still processing items: 1 items remaining...
+15:05:50.612 | INFO    | prefect.runner - 199 scheduled runs skipped (at capacity)
+15:05:56.345 | INFO    | Flow run 'acoustic-aardwolf' - Downloading flow code from storage at '.'
+15:05:59.893 | INFO    | prefect.runner - 200 scheduled runs skipped (at capacity)
+15:06:03.361 | INFO    | Flow run 'acoustic-aardwolf' - Beginning flow run 'acoustic-aardwolf' for flow 'bank-batch-watcher'
+15:06:03.363 | INFO    | Flow run 'acoustic-aardwolf' - View at http://localhost:4200/runs/flow-run/01a1b698-b340-7c4a-b222-374e2642d14a
+15:06:03.376 | INFO    | Flow run 'acoustic-aardwolf' - Aucun lot en attente dans C:\Users\jojo\Documents\5MLDE\bank-mlops\data\landing
+15:06:04.544 | INFO    | Flow run 'acoustic-aardwolf' - Finished in state Completed()
+15:06:05.429 | WARNING | EventsWorker - Still processing items: 1 items remaining...
+15:06:09.970 | INFO    | prefect.runner - 199 scheduled runs skipped (at capacity)
+15:06:16.020 | INFO    | Flow run 'alchemical-caribou' - Downloading flow code from storage at '.'
+15:06:18.812 | INFO    | prefect.runner - 200 scheduled runs skipped (at capacity)
+15:06:23.066 | INFO    | Flow run 'alchemical-caribou' - Beginning flow run 'alchemical-caribou' for flow 'bank-batch-watcher'
+15:06:23.067 | INFO    | Flow run 'alchemical-caribou' - View at http://localhost:4200/runs/flow-run/01a1b698-b340-72e6-a4a4-4a9e23062494
+15:06:23.081 | INFO    | Flow run 'alchemical-caribou' - Aucun lot en attente dans C:\Users\jojo\Documents\5MLDE\bank-mlops\data\landing
+15:06:24.252 | INFO    | Flow run 'alchemical-caribou' - Finished in state Completed()
+15:06:25.135 | WARNING | EventsWorker - Still processing items: 1 items remaining...
+15:06:29.342 | INFO    | prefect.runner - 199 scheduled runs skipped (at capacity)
+15:06:35.070 | INFO    | Flow run 'analytic-seriema' - Downloading flow code from storage at '.'
+15:06:40.592 | INFO    | prefect.runner - 200 scheduled runs skipped (at capacity)
+15:06:42.076 | INFO    | Flow run 'analytic-seriema' - Beginning flow run 'analytic-seriema' for flow 'bank-batch-watcher'
+15:06:42.077 | INFO    | Flow run 'analytic-seriema' - View at http://localhost:4200/runs/flow-run/01a1b698-b340-7cf5-85de-71d268bc5c3e
+15:06:42.090 | INFO    | Flow run 'analytic-seriema' - Aucun lot en attente dans C:\Users\jojo\Documents\5MLDE\bank-mlops\data\landing
+15:06:43.109 | INFO    | Flow run 'analytic-seriema' - Finished in state Completed()
+15:06:44.140 | WARNING | EventsWorker - Still processing items: 1 items remaining...
+15:06:50.672 | INFO    | prefect.runner - 199 scheduled runs skipped (at capacity)
+15:06:56.366 | INFO    | Flow run 'funny-nightingale' - Downloading flow code from storage at '.'
+15:06:58.598 | INFO    | prefect.runner - 200 scheduled runs skipped (at capacity)
+15:07:03.431 | INFO    | Flow run 'funny-nightingale' - Beginning flow run 'funny-nightingale' for flow 'bank-batch-watcher'
+15:07:03.432 | INFO    | Flow run 'funny-nightingale' - View at http://localhost:4200/runs/flow-run/01a1b698-b340-732f-90d1-2a7a84e918b5
+15:07:03.444 | INFO    | Flow run 'funny-nightingale' - Aucun lot en attente dans C:\Users\jojo\Documents\5MLDE\bank-mlops\data\landing
+15:07:04.619 | INFO    | Flow run 'funny-nightingale' - Finished in state Completed()
+15:07:05.507 | WARNING | EventsWorker - Still processing items: 1 items remaining...
+15:07:07.349 | INFO    | prefect.runner - 199 scheduled runs skipped (at capacity)
+15:07:13.132 | INFO    | Flow run 'refreshing-mouse' - Downloading flow code from storage at '.'
+15:07:18.602 | INFO    | prefect.runner - 200 scheduled runs skipped (at capacity)
+15:07:20.292 | INFO    | Flow run 'refreshing-mouse' - Beginning flow run 'refreshing-mouse' for flow 'bank-batch-watcher'
+15:07:20.293 | INFO    | Flow run 'refreshing-mouse' - View at http://localhost:4200/runs/flow-run/01a1b698-b340-7254-ba71-2caed5473999
+15:07:20.305 | INFO    | Flow run 'refreshing-mouse' - Aucun lot en attente dans C:\Users\jojo\Documents\5MLDE\bank-mlops\data\landing
+15:07:21.494 | INFO    | Flow run 'refreshing-mouse' - Finished in state Completed()
+15:07:22.364 | WARNING | EventsWorker - Still processing items: 1 items remaining...
+15:07:29.151 | INFO    | prefect.runner - 199 scheduled runs skipped (at capacity)
+15:07:34.958 | INFO    | Flow run 'versatile-gopher' - Downloading flow code from storage at '.'
+15:07:37.235 | INFO    | prefect.runner - 200 scheduled runs skipped (at capacity)
+15:07:42.238 | INFO    | Flow run 'versatile-gopher' - Beginning flow run 'versatile-gopher' for flow 'bank-batch-watcher'
+15:07:42.239 | INFO    | Flow run 'versatile-gopher' - View at http://localhost:4200/runs/flow-run/01a1b698-b340-77ca-b025-268214cd1bfb
+15:07:42.255 | INFO    | Flow run 'versatile-gopher' - Aucun lot en attente dans C:\Users\jojo\Documents\5MLDE\bank-mlops\data\landing
+15:07:43.441 | INFO    | Flow run 'versatile-gopher' - Finished in state Completed()
+15:07:44.320 | WARNING | EventsWorker - Still processing items: 1 items remaining...
+15:07:49.649 | INFO    | prefect.runner - 199 scheduled runs skipped (at capacity)
+15:07:55.483 | INFO    | Flow run 'tasteful-coot' - Downloading flow code from storage at '.'
+15:08:00.718 | INFO    | prefect.runner - 200 scheduled runs skipped (at capacity)
+15:08:02.453 | INFO    | Flow run 'tasteful-coot' - Beginning flow run 'tasteful-coot' for flow 'bank-batch-watcher'
+15:08:02.455 | INFO    | Flow run 'tasteful-coot' - View at http://localhost:4200/runs/flow-run/01a1b698-b340-7d93-94ae-4b679cb047ab
+15:08:02.468 | INFO    | Flow run 'tasteful-coot' - Aucun lot en attente dans C:\Users\jojo\Documents\5MLDE\bank-mlops\data\landing
+15:08:03.586 | INFO    | Flow run 'tasteful-coot' - Finished in state Completed()
+15:08:04.506 | WARNING | EventsWorker - Still processing items: 1 items remaining...
+15:08:11.723 | INFO    | prefect.runner - 199 scheduled runs skipped (at capacity)
+15:08:17.646 | INFO    | Flow run 'gigantic-oriole' - Downloading flow code from storage at '.'
+15:08:20.065 | INFO    | prefect.runner - 200 scheduled runs skipped (at capacity)
+15:08:24.663 | INFO    | Flow run 'gigantic-oriole' - Beginning flow run 'gigantic-oriole' for flow 'bank-batch-watcher'
+15:08:24.665 | INFO    | Flow run 'gigantic-oriole' - View at http://localhost:4200/runs/flow-run/01a1b698-b340-73dc-8a84-58f1d82029f8
+15:08:24.677 | INFO    | Flow run 'gigantic-oriole' - Aucun lot en attente dans C:\Users\jojo\Documents\5MLDE\bank-mlops\data\landing
+15:08:25.863 | INFO    | Flow run 'gigantic-oriole' - Finished in state Completed()
+15:08:26.716 | WARNING | EventsWorker - Still processing items: 1 items remaining...
+15:08:29.457 | INFO    | prefect.runner - 199 scheduled runs skipped (at capacity)
+15:08:35.165 | INFO    | Flow run 'truthful-cricket' - Downloading flow code from storage at '.'
+15:08:40.265 | INFO    | prefect.runner - 200 scheduled runs skipped (at capacity)
+15:08:42.087 | INFO    | Flow run 'truthful-cricket' - Beginning flow run 'truthful-cricket' for flow 'bank-batch-watcher'
+15:08:42.142 | INFO    | Flow run 'truthful-cricket' - View at http://localhost:4200/runs/flow-run/01a1b698-b340-79c7-9c67-43cae3ba120d
+15:08:42.153 | INFO    | Flow run 'truthful-cricket' - Aucun lot en attente dans C:\Users\jojo\Documents\5MLDE\bank-mlops\data\landing
+15:08:43.298 | INFO    | Flow run 'truthful-cricket' - Finished in state Completed()
+15:08:44.205 | WARNING | EventsWorker - Still processing items: 1 items remaining...
+15:08:49.465 | INFO    | prefect.runner - 199 scheduled runs skipped (at capacity)
+15:08:55.419 | INFO    | Flow run 'encouraging-chameleon' - Downloading flow code from storage at '.'
+15:08:58.306 | INFO    | prefect.runner - 200 scheduled runs skipped (at capacity)
+15:09:02.380 | INFO    | Flow run 'encouraging-chameleon' - Beginning flow run 'encouraging-chameleon' for flow 'bank-batch-watcher'
+15:09:02.435 | INFO    | Flow run 'encouraging-chameleon' - View at http://localhost:4200/runs/flow-run/01a1b698-b340-7ca3-bea7-d483492c9a5d
+15:09:02.448 | INFO    | Flow run 'encouraging-chameleon' - Aucun lot en attente dans C:\Users\jojo\Documents\5MLDE\bank-mlops\data\landing
+15:09:03.590 | INFO    | Flow run 'encouraging-chameleon' - Finished in state Completed()
+15:09:04.502 | WARNING | EventsWorker - Still processing items: 1 items remaining...
+15:09:08.746 | INFO    | prefect.runner - 199 scheduled runs skipped (at capacity)
+15:09:14.431 | INFO    | Flow run 'gleaming-junglefowl' - Downloading flow code from storage at '.'
+15:09:20.866 | INFO    | prefect.runner - 200 scheduled runs skipped (at capacity)
+15:09:21.524 | INFO    | Flow run 'gleaming-junglefowl' - Beginning flow run 'gleaming-junglefowl' for flow 'bank-batch-watcher'
+15:09:21.526 | INFO    | Flow run 'gleaming-junglefowl' - View at http://localhost:4200/runs/flow-run/01a1b698-b340-79d5-a082-363cb541bbd1
+15:09:21.538 | INFO    | Flow run 'gleaming-junglefowl' - Aucun lot en attente dans C:\Users\jojo\Documents\5MLDE\bank-mlops\data\landing
+15:09:22.709 | INFO    | Flow run 'gleaming-junglefowl' - Finished in state Completed()
+15:09:23.610 | WARNING | EventsWorker - Still processing items: 1 items remaining...
+15:09:32.215 | INFO    | prefect.runner - 199 scheduled runs skipped (at capacity)
+15:09:37.854 | INFO    | Flow run 'fantastic-shrew' - Downloading flow code from storage at '.'
+15:09:40.869 | INFO    | prefect.runner - 200 scheduled runs skipped (at capacity)
+15:09:44.733 | INFO    | Flow run 'fantastic-shrew' - Beginning flow run 'fantastic-shrew' for flow 'bank-batch-watcher'
+15:09:44.734 | INFO    | Flow run 'fantastic-shrew' - View at http://localhost:4200/runs/flow-run/01a1b698-b340-7747-8645-84cbe1fb2eda
+15:09:44.744 | INFO    | Flow run 'fantastic-shrew' - Aucun lot en attente dans C:\Users\jojo\Documents\5MLDE\bank-mlops\data\landing
+15:09:45.941 | INFO    | Flow run 'fantastic-shrew' - Finished in state Completed()
+15:09:46.782 | WARNING | EventsWorker - Still processing items: 1 items remaining...
+15:09:53.234 | INFO    | prefect.runner - 199 scheduled runs skipped (at capacity)
+15:09:59.180 | INFO    | Flow run 'super-cobra' - Downloading flow code from storage at '.'
+15:10:02.942 | INFO    | prefect.runner - 200 scheduled runs skipped (at capacity)
+15:10:06.383 | INFO    | Flow run 'super-cobra' - Beginning flow run 'super-cobra' for flow 'bank-batch-watcher'
+15:10:06.384 | INFO    | Flow run 'super-cobra' - View at http://localhost:4200/runs/flow-run/01a1b698-b341-79b8-9564-274f92f8ecd8
+15:10:06.388 | INFO    | Flow run 'super-cobra' - Aucun lot en attente dans C:\Users\jojo\Documents\5MLDE\bank-mlops\data\landing
+15:10:07.615 | INFO    | Flow run 'super-cobra' - Finished in state Completed()
+15:10:08.446 | WARNING | EventsWorker - Still processing items: 1 items remaining...
+15:10:11.709 | INFO    | prefect.runner - 199 scheduled runs skipped (at capacity)
+15:10:17.368 | INFO    | Flow run 'terrestrial-bat' - Downloading flow code from storage at '.'
+15:10:21.812 | INFO    | prefect.runner - 200 scheduled runs skipped (at capacity)
+15:10:24.520 | INFO    | Flow run 'terrestrial-bat' - Beginning flow run 'terrestrial-bat' for flow 'bank-batch-watcher'
+15:10:24.521 | INFO    | Flow run 'terrestrial-bat' - View at http://localhost:4200/runs/flow-run/01a1b698-b341-7a7c-9ac3-e698b81fe855
+15:10:24.530 | INFO    | Flow run 'terrestrial-bat' - Aucun lot en attente dans C:\Users\jojo\Documents\5MLDE\bank-mlops\data\landing
+15:10:25.710 | INFO    | Flow run 'terrestrial-bat' - Finished in state Completed()
+15:10:26.574 | WARNING | EventsWorker - Still processing items: 1 items remaining...
+15:10:31.523 | INFO    | prefect.runner - 199 scheduled runs skipped (at capacity)
+15:10:37.725 | INFO    | Flow run 'myrtle-porpoise' - Downloading flow code from storage at '.'
+15:10:41.058 | INFO    | prefect.runner - 200 scheduled runs skipped (at capacity)
+15:10:44.793 | INFO    | Flow run 'myrtle-porpoise' - Beginning flow run 'myrtle-porpoise' for flow 'bank-batch-watcher'
+15:10:44.793 | INFO    | Flow run 'myrtle-porpoise' - View at http://localhost:4200/runs/flow-run/01a1b698-b341-7c54-a4a1-54d05a97aedd
+15:10:44.805 | INFO    | Flow run 'myrtle-porpoise' - Aucun lot en attente dans C:\Users\jojo\Documents\5MLDE\bank-mlops\data\landing
+15:10:45.986 | INFO    | Flow run 'myrtle-porpoise' - Finished in state Completed()
+15:10:46.840 | WARNING | EventsWorker - Still processing items: 1 items remaining...
+15:10:53.907 | INFO    | prefect.runner - 199 scheduled runs skipped (at capacity)
+15:10:59.893 | INFO    | Flow run 'imperious-shark' - Downloading flow code from storage at '.'
+15:11:01.964 | INFO    | prefect.runner - 200 scheduled runs skipped (at capacity)
+15:11:07.050 | INFO    | Flow run 'imperious-shark' - Beginning flow run 'imperious-shark' for flow 'bank-batch-watcher'
+15:11:07.052 | INFO    | Flow run 'imperious-shark' - View at http://localhost:4200/runs/flow-run/01a1b698-b341-7172-812a-ed5d7e91dd8c
+15:11:07.064 | INFO    | Flow run 'imperious-shark' - Aucun lot en attente dans C:\Users\jojo\Documents\5MLDE\bank-mlops\data\landing
+15:11:08.253 | INFO    | Flow run 'imperious-shark' - Finished in state Completed()
+15:11:09.100 | WARNING | EventsWorker - Still processing items: 1 items remaining...
+15:11:11.096 | INFO    | prefect.runner - 199 scheduled runs skipped (at capacity)
+15:11:17.292 | INFO    | Flow run 'nocturnal-crow' - Downloading flow code from storage at '.'
+15:11:23.037 | INFO    | prefect.runner - 200 scheduled runs skipped (at capacity)
+15:11:24.851 | INFO    | Flow run 'nocturnal-crow' - Beginning flow run 'nocturnal-crow' for flow 'bank-batch-watcher'
+15:11:24.855 | INFO    | Flow run 'nocturnal-crow' - View at http://localhost:4200/runs/flow-run/01a1b698-b341-7a8e-8dc6-26f7db4cc0b3
+15:11:24.880 | INFO    | Flow run 'nocturnal-crow' - Aucun lot en attente dans C:\Users\jojo\Documents\5MLDE\bank-mlops\data\landing
+15:11:26.041 | INFO    | Flow run 'nocturnal-crow' - Finished in state Completed()
+15:11:26.923 | WARNING | EventsWorker - Still processing items: 1 items remaining...
+15:11:31.105 | INFO    | prefect.runner - 199 scheduled runs skipped (at capacity)
+15:11:36.978 | INFO    | Flow run 'tall-malkoha' - Downloading flow code from storage at '.'
+15:11:43.570 | INFO    | prefect.runner - 200 scheduled runs skipped (at capacity)
+15:11:43.878 | INFO    | Flow run 'tall-malkoha' - Beginning flow run 'tall-malkoha' for flow 'bank-batch-watcher'
+15:11:43.928 | INFO    | Flow run 'tall-malkoha' - View at http://localhost:4200/runs/flow-run/01a1b698-b341-770a-8d32-a093255082df
+15:11:43.928 | INFO    | Flow run 'tall-malkoha' - Aucun lot en attente dans C:\Users\jojo\Documents\5MLDE\bank-mlops\data\landing
+15:11:45.088 | INFO    | Flow run 'tall-malkoha' - Finished in state Completed()
+15:11:45.991 | WARNING | EventsWorker - Still processing items: 1 items remaining...
+15:11:51.905 | INFO    | prefect.runner - 199 scheduled runs skipped (at capacity)
+15:11:58.048 | INFO    | Flow run 'mutant-dodo' - Downloading flow code from storage at '.'
+15:12:00.920 | INFO    | prefect.runner - 200 scheduled runs skipped (at capacity)
+15:12:04.988 | INFO    | Flow run 'mutant-dodo' - Beginning flow run 'mutant-dodo' for flow 'bank-batch-watcher'
+15:12:04.991 | INFO    | Flow run 'mutant-dodo' - View at http://localhost:4200/runs/flow-run/01a1b698-b341-7d03-9b1c-113b45213afd
+15:12:05.010 | INFO    | Flow run 'mutant-dodo' - Aucun lot en attente dans C:\Users\jojo\Documents\5MLDE\bank-mlops\data\landing
+15:12:06.107 | INFO    | Flow run 'mutant-dodo' - Finished in state Completed()
+15:12:07.056 | WARNING | EventsWorker - Still processing items: 1 items remaining...
+15:12:09.988 | INFO    | prefect.runner - 199 scheduled runs skipped (at capacity)
+15:12:16.308 | INFO    | Flow run 'uber-boobook' - Downloading flow code from storage at '.'
+15:12:21.846 | INFO    | prefect.runner - 200 scheduled runs skipped (at capacity)
+15:12:23.310 | INFO    | Flow run 'uber-boobook' - Beginning flow run 'uber-boobook' for flow 'bank-batch-watcher'
+15:12:23.312 | INFO    | Flow run 'uber-boobook' - View at http://localhost:4200/runs/flow-run/01a1b698-b341-7cae-9f0b-fe2d47e6c8c6
+15:12:23.325 | INFO    | Flow run 'uber-boobook' - Aucun lot en attente dans C:\Users\jojo\Documents\5MLDE\bank-mlops\data\landing
+15:12:24.494 | INFO    | Flow run 'uber-boobook' - Finished in state Completed()
+15:12:25.379 | WARNING | EventsWorker - Still processing items: 1 items remaining...
+15:12:30.644 | INFO    | prefect.runner - 199 scheduled runs skipped (at capacity)
+15:12:37.405 | INFO    | Flow run 'diamond-pigeon' - Downloading flow code from storage at '.'
+15:12:40.966 | INFO    | prefect.runner - 200 scheduled runs skipped (at capacity)
+15:12:44.365 | INFO    | Flow run 'diamond-pigeon' - Beginning flow run 'diamond-pigeon' for flow 'bank-batch-watcher'
+15:12:44.418 | INFO    | Flow run 'diamond-pigeon' - View at http://localhost:4200/runs/flow-run/01a1b698-b341-7ceb-8589-b13d871cae4f
+15:12:44.430 | INFO    | Flow run 'diamond-pigeon' - Aucun lot en attente dans C:\Users\jojo\Documents\5MLDE\bank-mlops\data\landing
+15:12:45.561 | INFO    | Flow run 'diamond-pigeon' - Finished in state Completed()
+15:12:46.516 | WARNING | EventsWorker - Still processing items: 1 items remaining...
+15:12:50.517 | INFO    | prefect.runner - 199 scheduled runs skipped (at capacity)
+15:12:56.286 | INFO    | Flow run 'tungsten-crab' - Downloading flow code from storage at '.'
+15:12:59.169 | INFO    | prefect.runner - 200 scheduled runs skipped (at capacity)
+15:13:03.272 | INFO    | Flow run 'tungsten-crab' - Beginning flow run 'tungsten-crab' for flow 'bank-batch-watcher'
+15:13:03.273 | INFO    | Flow run 'tungsten-crab' - View at http://localhost:4200/runs/flow-run/01a1b698-b341-72af-817f-ece4882bc3b3
+15:13:03.298 | INFO    | Flow run 'tungsten-crab' - Aucun lot en attente dans C:\Users\jojo\Documents\5MLDE\bank-mlops\data\landing
+15:13:04.457 | INFO    | Flow run 'tungsten-crab' - Finished in state Completed()
+15:13:05.354 | WARNING | EventsWorker - Still processing items: 1 items remaining...
+15:13:07.631 | INFO    | prefect.runner - 199 scheduled runs skipped (at capacity)
+15:13:13.546 | INFO    | Flow run 'illegal-penguin' - Downloading flow code from storage at '.'
+15:13:19.887 | INFO    | prefect.runner - 200 scheduled runs skipped (at capacity)
+15:13:20.909 | INFO    | Flow run 'illegal-penguin' - Beginning flow run 'illegal-penguin' for flow 'bank-batch-watcher'
+15:13:20.910 | INFO    | Flow run 'illegal-penguin' - View at http://localhost:4200/runs/flow-run/01a1b698-b341-7c51-812f-63c7cb950eeb
+15:13:20.924 | INFO    | Flow run 'illegal-penguin' - Aucun lot en attente dans C:\Users\jojo\Documents\5MLDE\bank-mlops\data\landing
+15:13:22.101 | INFO    | Flow run 'illegal-penguin' - Finished in state Completed()
+15:13:22.989 | WARNING | EventsWorker - Still processing items: 1 items remaining...
+15:13:30.968 | INFO    | prefect.runner - 199 scheduled runs skipped (at capacity)
+15:13:37.852 | INFO    | Flow run 'perfect-mastodon' - Downloading flow code from storage at '.'
+15:13:42.471 | INFO    | prefect.runner - 200 scheduled runs skipped (at capacity)
+15:13:44.906 | INFO    | Flow run 'perfect-mastodon' - Beginning flow run 'perfect-mastodon' for flow 'bank-batch-watcher'
+15:13:44.907 | INFO    | Flow run 'perfect-mastodon' - View at http://localhost:4200/runs/flow-run/01a1b698-b341-7d52-bc14-73410584ae0e
+15:13:44.918 | INFO    | Flow run 'perfect-mastodon' - Aucun lot en attente dans C:\Users\jojo\Documents\5MLDE\bank-mlops\data\landing
+15:13:46.116 | INFO    | Flow run 'perfect-mastodon' - Finished in state Completed()
+15:13:46.972 | WARNING | EventsWorker - Still processing items: 1 items remaining...
+15:13:51.818 | INFO    | prefect.runner - 199 scheduled runs skipped (at capacity)
+15:13:57.591 | INFO    | Flow run 'chestnut-dingo' - Downloading flow code from storage at '.'
+15:14:02.029 | INFO    | prefect.runner - 200 scheduled runs skipped (at capacity)
+15:14:04.535 | INFO    | Flow run 'chestnut-dingo' - Beginning flow run 'chestnut-dingo' for flow 'bank-batch-watcher'
+15:14:04.587 | INFO    | Flow run 'chestnut-dingo' - View at http://localhost:4200/runs/flow-run/01a1b698-b341-740b-8ab6-d9dd77771d86
+15:14:04.599 | INFO    | Flow run 'chestnut-dingo' - Aucun lot en attente dans C:\Users\jojo\Documents\5MLDE\bank-mlops\data\landing
+15:14:05.733 | INFO    | Flow run 'chestnut-dingo' - Finished in state Completed()
+15:14:06.669 | WARNING | EventsWorker - Still processing items: 1 items remaining...
+15:14:12.339 | INFO    | prefect.runner - 199 scheduled runs skipped (at capacity)
+15:14:17.966 | INFO    | Flow run 'fervent-mastodon' - Downloading flow code from storage at '.'
+15:14:20.885 | INFO    | prefect.runner - 200 scheduled runs skipped (at capacity)
+15:14:24.866 | INFO    | Flow run 'fervent-mastodon' - Beginning flow run 'fervent-mastodon' for flow 'bank-batch-watcher'
+15:14:24.868 | INFO    | Flow run 'fervent-mastodon' - View at http://localhost:4200/runs/flow-run/01a1b698-b341-71ef-85d3-33111873f78e
+15:14:24.870 | INFO    | Flow run 'fervent-mastodon' - Aucun lot en attente dans C:\Users\jojo\Documents\5MLDE\bank-mlops\data\landing
+15:14:25.880 | INFO    | Flow run 'fervent-mastodon' - Finished in state Completed()
+15:14:26.917 | WARNING | EventsWorker - Still processing items: 1 items remaining...
+15:14:32.844 | INFO    | prefect.runner - 199 scheduled runs skipped (at capacity)
+15:14:38.683 | INFO    | Flow run 'cute-pudu' - Downloading flow code from storage at '.'
+15:14:41.036 | INFO    | prefect.runner - 200 scheduled runs skipped (at capacity)
+15:14:45.676 | INFO    | Flow run 'cute-pudu' - Beginning flow run 'cute-pudu' for flow 'bank-batch-watcher'
+15:14:45.676 | INFO    | Flow run 'cute-pudu' - View at http://localhost:4200/runs/flow-run/01a1b698-b341-742f-bb28-aab3dec429d6
+15:14:45.676 | INFO    | Flow run 'cute-pudu' - Aucun lot en attente dans C:\Users\jojo\Documents\5MLDE\bank-mlops\data\landing
+15:14:46.858 | INFO    | Flow run 'cute-pudu' - Finished in state Completed()
+15:14:47.736 | WARNING | EventsWorker - Still processing items: 1 items remaining...
+15:14:51.038 | INFO    | prefect.runner - 199 scheduled runs skipped (at capacity)
+15:14:57.005 | INFO    | Flow run 'tangerine-gibbon' - Downloading flow code from storage at '.'
+15:15:02.702 | INFO    | prefect.runner - 200 scheduled runs skipped (at capacity)
+15:15:04.051 | INFO    | Flow run 'tangerine-gibbon' - Beginning flow run 'tangerine-gibbon' for flow 'bank-batch-watcher'
+15:15:04.052 | INFO    | Flow run 'tangerine-gibbon' - View at http://localhost:4200/runs/flow-run/01a1b698-b341-73f4-a346-619c2d81d2ab
+15:15:04.063 | INFO    | Flow run 'tangerine-gibbon' - Aucun lot en attente dans C:\Users\jojo\Documents\5MLDE\bank-mlops\data\landing
+15:15:05.238 | INFO    | Flow run 'tangerine-gibbon' - Finished in state Completed()
+15:15:06.114 | WARNING | EventsWorker - Still processing items: 1 items remaining...
+15:15:13.885 | INFO    | prefect.runner - 199 scheduled runs skipped (at capacity)
+15:15:19.498 | INFO    | Flow run 'astonishing-dragon' - Downloading flow code from storage at '.'
+15:15:23.894 | INFO    | prefect.runner - 200 scheduled runs skipped (at capacity)
+15:15:26.619 | INFO    | Flow run 'astonishing-dragon' - Beginning flow run 'astonishing-dragon' for flow 'bank-batch-watcher'
+15:15:26.620 | INFO    | Flow run 'astonishing-dragon' - View at http://localhost:4200/runs/flow-run/01a1b698-b341-756b-8543-fd3d04b906d9
+15:15:26.631 | INFO    | Flow run 'astonishing-dragon' - Aucun lot en attente dans C:\Users\jojo\Documents\5MLDE\bank-mlops\data\landing
+15:15:27.812 | INFO    | Flow run 'astonishing-dragon' - Finished in state Completed()
+15:15:28.699 | WARNING | EventsWorker - Still processing items: 1 items remaining...
+15:15:34.774 | INFO    | prefect.runner - 199 scheduled runs skipped (at capacity)
+15:15:40.444 | INFO    | Flow run 'talented-axolotl' - Downloading flow code from storage at '.'
+15:15:44.842 | INFO    | prefect.runner - 200 scheduled runs skipped (at capacity)
+15:15:47.581 | INFO    | Flow run 'talented-axolotl' - Beginning flow run 'talented-axolotl' for flow 'bank-batch-watcher'
+15:15:47.582 | INFO    | Flow run 'talented-axolotl' - View at http://localhost:4200/runs/flow-run/01a1b698-b341-7089-800f-03f05346df87
+15:15:47.595 | INFO    | Flow run 'talented-axolotl' - Aucun lot en attente dans C:\Users\jojo\Documents\5MLDE\bank-mlops\data\landing
+15:15:48.780 | INFO    | Flow run 'talented-axolotl' - Finished in state Completed()
+15:15:49.632 | WARNING | EventsWorker - Still processing items: 1 items remaining...
+15:15:53.253 | INFO    | prefect.runner - 199 scheduled runs skipped (at capacity)
+15:16:00.555 | INFO    | Flow run 'towering-trogon' - Downloading flow code from storage at '.'
+15:16:01.484 | INFO    | prefect.runner - 200 scheduled runs skipped (at capacity)
+15:16:08.733 | INFO    | Flow run 'towering-trogon' - Beginning flow run 'towering-trogon' for flow 'bank-batch-watcher'
+15:16:08.740 | INFO    | Flow run 'towering-trogon' - View at http://localhost:4200/runs/flow-run/01a1b698-b341-7539-b7cf-10e77bce8789
+15:16:09.171 | INFO    | Flow run 'towering-trogon' - Aucun lot en attente dans C:\Users\jojo\Documents\5MLDE\bank-mlops\data\landing
+15:16:10.048 | INFO    | Flow run 'towering-trogon' - Finished in state Completed()
+15:16:11.528 | WARNING | EventsWorker - Still processing items: 1 items remaining...
+15:16:11.669 | INFO    | prefect.runner - 200 scheduled runs skipped (at capacity)
+15:16:21.602 | INFO    | prefect.runner - 199 scheduled runs skipped (at capacity)
+15:16:28.416 | INFO    | Flow run 'observant-skua' - Downloading flow code from storage at '.'
+15:16:30.498 | INFO    | prefect.runner - 200 scheduled runs skipped (at capacity)
+15:16:35.600 | INFO    | Flow run 'observant-skua' - Beginning flow run 'observant-skua' for flow 'bank-batch-watcher'
+15:16:35.602 | INFO    | Flow run 'observant-skua' - View at http://localhost:4200/runs/flow-run/01a1b698-b341-771a-ab4b-a2dad361ea8d
+15:16:35.615 | INFO    | Flow run 'observant-skua' - Aucun lot en attente dans C:\Users\jojo\Documents\5MLDE\bank-mlops\data\landing
+15:16:36.611 | INFO    | Flow run 'observant-skua' - Finished in state Completed()
+15:16:37.658 | WARNING | EventsWorker - Still processing items: 1 items remaining...
+15:16:41.937 | INFO    | prefect.runner - 199 scheduled runs skipped (at capacity)
+15:16:53.185 | INFO    | prefect.runner - 200 scheduled runs skipped (at capacity)
+15:16:58.035 | INFO    | Flow run 'enigmatic-moth' - Downloading flow code from storage at '.'
+15:17:05.366 | INFO    | prefect.runner - 200 scheduled runs skipped (at capacity)
+15:17:05.440 | INFO    | Flow run 'enigmatic-moth' - Beginning flow run 'enigmatic-moth' for flow 'bank-batch-watcher'
+15:17:05.442 | INFO    | Flow run 'enigmatic-moth' - View at http://localhost:4200/runs/flow-run/01a1b698-b341-7bb9-9fd8-233bbc9e0f30
+15:17:05.454 | INFO    | Flow run 'enigmatic-moth' - Aucun lot en attente dans C:\Users\jojo\Documents\5MLDE\bank-mlops\data\landing
+15:17:06.650 | INFO    | Flow run 'enigmatic-moth' - Finished in state Completed()
+15:17:07.497 | WARNING | EventsWorker - Still processing items: 1 items remaining...
+15:17:18.684 | INFO    | prefect.runner - 199 scheduled runs skipped (at capacity)
+15:17:24.548 | INFO    | Flow run 'glaring-asp' - Downloading flow code from storage at '.'
+15:17:30.606 | INFO    | prefect.runner - 200 scheduled runs skipped (at capacity)
+15:17:31.729 | INFO    | Flow run 'glaring-asp' - Beginning flow run 'glaring-asp' for flow 'bank-batch-watcher'
+15:17:31.730 | INFO    | Flow run 'glaring-asp' - View at http://localhost:4200/runs/flow-run/01a1b698-b341-70a2-a319-c02f02f03e1c
+15:17:31.743 | INFO    | Flow run 'glaring-asp' - Aucun lot en attente dans C:\Users\jojo\Documents\5MLDE\bank-mlops\data\landing
+15:17:32.869 | INFO    | Flow run 'glaring-asp' - Finished in state Completed()
+15:17:33.787 | WARNING | EventsWorker - Still processing items: 1 items remaining...
+15:17:43.786 | INFO    | prefect.runner - 199 scheduled runs skipped (at capacity)
+15:17:51.217 | INFO    | Flow run 'positive-jaguar' - Downloading flow code from storage at '.'
+15:17:53.610 | INFO    | prefect.runner - 200 scheduled runs skipped (at capacity)
+15:17:58.341 | INFO    | Flow run 'positive-jaguar' - Beginning flow run 'positive-jaguar' for flow 'bank-batch-watcher'
+15:17:58.342 | INFO    | Flow run 'positive-jaguar' - View at http://localhost:4200/runs/flow-run/01a1b698-b341-726d-a81a-b616fca3b29c
+15:17:58.353 | INFO    | Flow run 'positive-jaguar' - Aucun lot en attente dans C:\Users\jojo\Documents\5MLDE\bank-mlops\data\landing
+15:17:59.501 | INFO    | Flow run 'positive-jaguar' - Finished in state Completed()
+15:18:00.386 | WARNING | EventsWorker - Still processing items: 1 items remaining...
+15:18:03.134 | INFO    | prefect.runner - 199 scheduled runs skipped (at capacity)
+15:18:08.957 | INFO    | Flow run 'striped-swift' - Downloading flow code from storage at '.'
+15:18:11.164 | INFO    | prefect.runner - 200 scheduled runs skipped (at capacity)
+15:18:16.339 | INFO    | Flow run 'striped-swift' - Beginning flow run 'striped-swift' for flow 'bank-batch-watcher'
+15:18:16.340 | INFO    | Flow run 'striped-swift' - View at http://localhost:4200/runs/flow-run/01a1b698-b341-7e37-8590-526f636963df
+15:18:16.355 | INFO    | Flow run 'striped-swift' - Aucun lot en attente dans C:\Users\jojo\Documents\5MLDE\bank-mlops\data\landing
+15:18:17.553 | INFO    | Flow run 'striped-swift' - Finished in state Completed()
+15:18:18.401 | WARNING | EventsWorker - Still processing items: 1 items remaining...
+15:18:21.166 | INFO    | prefect.runner - 199 scheduled runs skipped (at capacity)
+15:18:26.886 | INFO    | Flow run 'luminous-aardvark' - Downloading flow code from storage at '.'
+15:18:29.281 | INFO    | prefect.runner - 200 scheduled runs skipped (at capacity)
+15:18:34.168 | INFO    | Flow run 'luminous-aardvark' - Beginning flow run 'luminous-aardvark' for flow 'bank-batch-watcher'
+15:18:34.169 | INFO    | Flow run 'luminous-aardvark' - View at http://localhost:4200/runs/flow-run/01a1b698-b341-7187-922a-044c65f142c7
+15:18:34.182 | INFO    | Flow run 'luminous-aardvark' - Aucun lot en attente dans C:\Users\jojo\Documents\5MLDE\bank-mlops\data\landing
+15:18:35.367 | INFO    | Flow run 'luminous-aardvark' - Finished in state Completed()
+15:18:36.240 | WARNING | EventsWorker - Still processing items: 1 items remaining...
+15:18:40.621 | INFO    | prefect.runner - 199 scheduled runs skipped (at capacity)
+15:18:46.683 | INFO    | Flow run 'laughing-hummingbird' - Downloading flow code from storage at '.'
+15:18:53.258 | INFO    | prefect.runner - 200 scheduled runs skipped (at capacity)
+15:18:53.716 | INFO    | Flow run 'laughing-hummingbird' - Beginning flow run 'laughing-hummingbird' for flow 'bank-batch-watcher'
+15:18:53.717 | INFO    | Flow run 'laughing-hummingbird' - View at http://localhost:4200/runs/flow-run/01a1b698-b341-7f2f-8d13-bbb08e727e97
+15:18:53.729 | INFO    | Flow run 'laughing-hummingbird' - Aucun lot en attente dans C:\Users\jojo\Documents\5MLDE\bank-mlops\data\landing
+15:18:54.911 | INFO    | Flow run 'laughing-hummingbird' - Finished in state Completed()
+15:18:55.782 | WARNING | EventsWorker - Still processing items: 1 items remaining...
+15:19:06.081 | INFO    | prefect.runner - 199 scheduled runs skipped (at capacity)
+15:19:14.887 | INFO    | Flow run 'annoying-saiga' - Downloading flow code from storage at '.'
+15:19:17.036 | INFO    | prefect.runner - 200 scheduled runs skipped (at capacity)
+15:19:25.099 | INFO    | prefect.runner - 200 scheduled runs skipped (at capacity)
+15:19:25.915 | INFO    | Flow run 'annoying-saiga' - Beginning flow run 'annoying-saiga' for flow 'bank-batch-watcher'
+15:19:25.917 | INFO    | Flow run 'annoying-saiga' - View at http://localhost:4200/runs/flow-run/01a1b698-b342-749a-8ff6-a41167cf25fc
+15:19:25.939 | INFO    | Flow run 'annoying-saiga' - Aucun lot en attente dans C:\Users\jojo\Documents\5MLDE\bank-mlops\data\landing
+15:19:27.080 | INFO    | Flow run 'annoying-saiga' - Finished in state Completed()
+15:19:27.966 | WARNING | EventsWorker - Still processing items: 1 items remaining...
+15:19:35.479 | INFO    | prefect.runner - 199 scheduled runs skipped (at capacity)
+15:19:44.898 | INFO    | Flow run 'able-gaur' - Downloading flow code from storage at '.'
+15:19:46.918 | INFO    | prefect.runner - 200 scheduled runs skipped (at capacity)
+15:19:52.291 | INFO    | Flow run 'able-gaur' - Beginning flow run 'able-gaur' for flow 'bank-batch-watcher'
+15:19:52.296 | INFO    | Flow run 'able-gaur' - View at http://localhost:4200/runs/flow-run/01a1b698-b342-75e1-8ee1-d483dbd39230
+15:19:52.336 | INFO    | Flow run 'able-gaur' - Aucun lot en attente dans C:\Users\jojo\Documents\5MLDE\bank-mlops\data\landing
+15:19:53.355 | INFO    | Flow run 'able-gaur' - Finished in state Completed()
+15:19:54.366 | WARNING | EventsWorker - Still processing items: 1 items remaining...
+15:19:55.280 | INFO    | prefect.runner - 200 scheduled runs skipped (at capacity)
+15:20:04.342 | INFO    | prefect.runner - 199 scheduled runs skipped (at capacity)
+15:20:10.352 | INFO    | Flow run 'portable-buzzard' - Downloading flow code from storage at '.'
+15:20:17.786 | INFO    | prefect.runner - 200 scheduled runs skipped (at capacity)
+15:20:18.247 | INFO    | Flow run 'portable-buzzard' - Beginning flow run 'portable-buzzard' for flow 'bank-batch-watcher'
+15:20:18.249 | INFO    | Flow run 'portable-buzzard' - View at http://localhost:4200/runs/flow-run/01a1b698-b342-7adc-afed-2fdafd7e0ba6
+15:20:18.278 | INFO    | Flow run 'portable-buzzard' - Aucun lot en attente dans C:\Users\jojo\Documents\5MLDE\bank-mlops\data\landing
+15:20:19.269 | INFO    | Flow run 'portable-buzzard' - Finished in state Completed()
+15:20:20.321 | WARNING | EventsWorker - Still processing items: 1 items remaining...
+15:20:30.796 | INFO    | prefect.runner - 199 scheduled runs skipped (at capacity)
+15:20:37.258 | INFO    | Flow run 'gabby-wildcat' - Downloading flow code from storage at '.'
+15:20:43.555 | INFO    | prefect.runner - 200 scheduled runs skipped (at capacity)
+15:20:44.640 | INFO    | Flow run 'gabby-wildcat' - Beginning flow run 'gabby-wildcat' for flow 'bank-batch-watcher'
+15:20:44.642 | INFO    | Flow run 'gabby-wildcat' - View at http://localhost:4200/runs/flow-run/01a1b698-b342-7f51-bd5d-de5382175dea
+15:20:44.662 | INFO    | Flow run 'gabby-wildcat' - Aucun lot en attente dans C:\Users\jojo\Documents\5MLDE\bank-mlops\data\landing
+15:20:45.762 | INFO    | Flow run 'gabby-wildcat' - Finished in state Completed()
+15:20:46.717 | WARNING | EventsWorker - Still processing items: 1 items remaining...
+15:20:52.286 | INFO    | prefect.runner - 199 scheduled runs skipped (at capacity)
+15:21:00.548 | INFO    | prefect.runner - 200 scheduled runs skipped (at capacity)
+15:21:02.102 | INFO    | Flow run 'cryptic-jackdaw' - Downloading flow code from storage at '.'
+15:21:11.557 | INFO    | prefect.runner - 200 scheduled runs skipped (at capacity)
+15:21:11.994 | INFO    | Flow run 'cryptic-jackdaw' - Beginning flow run 'cryptic-jackdaw' for flow 'bank-batch-watcher'
+15:21:12.152 | INFO    | Flow run 'cryptic-jackdaw' - View at http://localhost:4200/runs/flow-run/01a1b698-b342-7a22-8890-5097e4f6ba09
+15:21:12.175 | INFO    | Flow run 'cryptic-jackdaw' - Aucun lot en attente dans C:\Users\jojo\Documents\5MLDE\bank-mlops\data\landing
+15:21:13.175 | INFO    | Flow run 'cryptic-jackdaw' - Finished in state Completed()
+15:21:14.244 | WARNING | EventsWorker - Still processing items: 1 items remaining...
+15:21:21.702 | INFO    | prefect.runner - 199 scheduled runs skipped (at capacity)
+15:21:31.306 | INFO    | prefect.runner - 200 scheduled runs skipped (at capacity)
+15:21:35.897 | INFO    | Flow run 'debonair-eagle' - Downloading flow code from storage at '.'
+15:21:44.163 | INFO    | prefect.runner - 200 scheduled runs skipped (at capacity)
+15:21:45.223 | INFO    | Flow run 'debonair-eagle' - Beginning flow run 'debonair-eagle' for flow 'bank-batch-watcher'
+15:21:45.224 | INFO    | Flow run 'debonair-eagle' - View at http://localhost:4200/runs/flow-run/01a1b698-b342-7898-ab07-422cd7e7224f
+15:21:45.247 | INFO    | Flow run 'debonair-eagle' - Aucun lot en attente dans C:\Users\jojo\Documents\5MLDE\bank-mlops\data\landing
+15:21:46.406 | INFO    | Flow run 'debonair-eagle' - Finished in state Completed()
+15:21:47.284 | WARNING | EventsWorker - Still processing items: 1 items remaining...
+15:21:53.292 | INFO    | prefect.runner - 199 scheduled runs skipped (at capacity)
+15:21:59.752 | INFO    | Flow run 'mellow-leopard' - Downloading flow code from storage at '.'
+15:22:02.761 | INFO    | prefect.runner - 200 scheduled runs skipped (at capacity)
+15:22:09.632 | INFO    | Flow run 'mellow-leopard' - Beginning flow run 'mellow-leopard' for flow 'bank-batch-watcher'
+15:22:09.635 | INFO    | Flow run 'mellow-leopard' - View at http://localhost:4200/runs/flow-run/01a1b698-b342-7f4e-adf5-f847f30265ae
+15:22:09.664 | INFO    | Flow run 'mellow-leopard' - Aucun lot en attente dans C:\Users\jojo\Documents\5MLDE\bank-mlops\data\landing
+15:22:10.804 | INFO    | Flow run 'mellow-leopard' - Finished in state Completed()
+15:22:11.717 | WARNING | EventsWorker - Still processing items: 1 items remaining...
+15:22:12.282 | INFO    | prefect.runner - 200 scheduled runs skipped (at capacity)
+15:22:24.110 | INFO    | prefect.runner - 199 scheduled runs skipped (at capacity)
+15:22:32.586 | INFO    | prefect.runner - 200 scheduled runs skipped (at capacity)
+15:22:35.813 | INFO    | Flow run 'bipedal-pogona' - Downloading flow code from storage at '.'
+15:22:44.218 | INFO    | prefect.runner - 200 scheduled runs skipped (at capacity)
+15:22:47.412 | INFO    | Flow run 'bipedal-pogona' - Beginning flow run 'bipedal-pogona' for flow 'bank-batch-watcher'
+15:22:47.414 | INFO    | Flow run 'bipedal-pogona' - View at http://localhost:4200/runs/flow-run/01a1b698-b342-7904-8256-d6db423a4b7d
+15:22:47.438 | INFO    | Flow run 'bipedal-pogona' - Aucun lot en attente dans C:\Users\jojo\Documents\5MLDE\bank-mlops\data\landing
+15:22:48.448 | INFO    | Flow run 'bipedal-pogona' - Finished in state Completed()
+15:22:49.506 | WARNING | EventsWorker - Still processing items: 1 items remaining...
+15:22:55.361 | INFO    | prefect.runner - 199 scheduled runs skipped (at capacity)
+15:23:04.184 | INFO    | prefect.runner - 200 scheduled runs skipped (at capacity)
+15:23:04.803 | INFO    | Flow run 'towering-mantis' - Downloading flow code from storage at '.'
+15:23:13.405 | INFO    | Flow run 'towering-mantis' - Beginning flow run 'towering-mantis' for flow 'bank-batch-watcher'
+15:23:13.407 | INFO    | Flow run 'towering-mantis' - View at http://localhost:4200/runs/flow-run/01a1b698-b342-7801-91af-dac67beedf5b
+15:23:13.422 | INFO    | Flow run 'towering-mantis' - Aucun lot en attente dans C:\Users\jojo\Documents\5MLDE\bank-mlops\data\landing
+15:23:14.605 | INFO    | Flow run 'towering-mantis' - Finished in state Completed()
+15:23:15.476 | INFO    | prefect.runner - 200 scheduled runs skipped (at capacity)
+15:23:15.475 | WARNING | EventsWorker - Still processing items: 1 items remaining...
+15:23:25.529 | INFO    | prefect.runner - 199 scheduled runs skipped (at capacity)
+15:23:33.913 | INFO    | Flow run 'successful-jaguar' - Downloading flow code from storage at '.'
+15:23:37.125 | INFO    | prefect.runner - 200 scheduled runs skipped (at capacity)
+15:23:41.434 | INFO    | Flow run 'successful-jaguar' - Beginning flow run 'successful-jaguar' for flow 'bank-batch-watcher'
+15:23:41.435 | INFO    | Flow run 'successful-jaguar' - View at http://localhost:4200/runs/flow-run/01a1b698-b342-7e1d-ac67-16eb8b7ba097
+15:23:41.447 | INFO    | Flow run 'successful-jaguar' - Aucun lot en attente dans C:\Users\jojo\Documents\5MLDE\bank-mlops\data\landing
+15:23:42.573 | INFO    | Flow run 'successful-jaguar' - Finished in state Completed()
+15:23:43.513 | WARNING | EventsWorker - Still processing items: 1 items remaining...
+15:23:46.533 | INFO    | prefect.runner - 199 scheduled runs skipped (at capacity)
+15:23:52.136 | INFO    | Flow run 'acrid-loon' - Downloading flow code from storage at '.'
+15:23:58.489 | INFO    | prefect.runner - 200 scheduled runs skipped (at capacity)
+15:23:59.114 | INFO    | Flow run 'acrid-loon' - Beginning flow run 'acrid-loon' for flow 'bank-batch-watcher'
+15:23:59.115 | INFO    | Flow run 'acrid-loon' - View at http://localhost:4200/runs/flow-run/01a1b698-b342-7c60-88ec-24c1002b6de9
+15:23:59.131 | INFO    | Flow run 'acrid-loon' - Aucun lot en attente dans C:\Users\jojo\Documents\5MLDE\bank-mlops\data\landing
+15:24:00.304 | INFO    | Flow run 'acrid-loon' - Finished in state Completed()
+15:24:01.165 | WARNING | EventsWorker - Still processing items: 1 items remaining...
+15:24:07.324 | INFO    | prefect.runner - 199 scheduled runs skipped (at capacity)
+15:24:12.989 | INFO    | Flow run 'spicy-pelican' - Downloading flow code from storage at '.'
+15:24:15.600 | INFO    | prefect.runner - 200 scheduled runs skipped (at capacity)
+15:24:19.882 | INFO    | Flow run 'spicy-pelican' - Beginning flow run 'spicy-pelican' for flow 'bank-batch-watcher'
+15:24:19.936 | INFO    | Flow run 'spicy-pelican' - View at http://localhost:4200/runs/flow-run/01a1b698-b342-7a36-930a-c5c5f56a1060
+15:24:19.948 | INFO    | Flow run 'spicy-pelican' - Aucun lot en attente dans C:\Users\jojo\Documents\5MLDE\bank-mlops\data\landing
+15:24:21.077 | INFO    | Flow run 'spicy-pelican' - Finished in state Completed()
+15:24:21.996 | WARNING | EventsWorker - Still processing items: 1 items remaining...
+15:24:26.459 | INFO    | prefect.runner - 199 scheduled runs skipped (at capacity)
+15:24:32.180 | INFO    | Flow run 'rainbow-toucan' - Downloading flow code from storage at '.'
+15:24:34.671 | INFO    | prefect.runner - 200 scheduled runs skipped (at capacity)
