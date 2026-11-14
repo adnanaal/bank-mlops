@@ -4,7 +4,27 @@ Projet final 5MLDE. Une chaîne MLOps complète, locale et gratuite, qui estime 
 souscrive un dépôt à terme** après un appel de campagne (UCI Bank Marketing). Le modèle est volontairement simple
 (régression logistique) : l'objectif est une chaîne opérationnelle, reproductible et maintenable.
 
-Synthèse des choix et résultats OPS : [SYNTHESE_OPS.md](SYNTHESE_OPS.md).
+Livrables :
+
+- ce README : sujet, architecture, récupération des données et commandes de reproduction ;
+- [SYNTHESE_OPS.md](SYNTHESE_OPS.md) : décisions techniques, preuves d'intégration, tests de charge,
+  dimensionnement recommandé et limites connues ;
+- [docs/DEMONSTRATION.md](docs/DEMONSTRATION.md) : déroulé de la démonstration (fonctionnement nominal et
+  incidents contrôlés).
+
+## Correspondance avec les attentes du sujet
+
+| Attente du sujet | Réalisation | Emplacement |
+|---|---|---|
+| Code et reproductibilité | Code modulaire sans notebook, configuration séparée, dépendances verrouillées par uv, 41 tests, analyse statique et intégration continue | `src/`, `configs/`, `uv.lock`, `tests/`, `.github/workflows/ci.yml` |
+| Données | Téléchargement reproductible avec empreinte, rejeu déclaré par lots mensuels, contrôles Great Expectations bloquants avant le prétraitement | `scripts/download_data.py`, `scripts/prepare_batches.py`, `src/data_validation.py` |
+| Orchestration | Flow Prefect en quatre tâches, déploiement planifié, reprises ciblées, alerte Teams sur échec définitif | `main.py`, `orchestration/` |
+| Traçabilité et modèles | Runs MLflow (données, paramètres, métriques, artefacts), registre, tags de qualification, alias `champion`, politique de mise en service, retour arrière | `src/tracking.py`, `src/registry.py`, `src/qualification.py`, `configs/qualification_policy.json`, `scripts/select_model.py` |
+| API de prédiction | Prédiction unitaire et par lot, validation des entrées, erreurs explicites, version exacte du modèle dans chaque réponse | `api_prediction/` |
+| Retours et persistance | Feedbacks idempotents ; requêtes, prédictions, versions, durées et erreurs conservées dans PostgreSQL | `api_prediction/`, `db/init-db.sql` |
+| Charge et déploiement | Protocole fixé avant les mesures, 45 tirs Locust, comparaison de 1, 2 et 4 workers, recommandation chiffrée | `load_tests/`, `docs/charge/`, section 3 de la synthèse |
+| Supervision | Tableau de bord Grafana provisionné : traitements, usage, performances et erreurs | `grafana/` |
+| Démonstration de bout en bout | Fonctionnement nominal, lot invalide, panne transitoire, dépendance arrêtée, retour arrière | `docs/DEMONSTRATION.md`, `docs/preuves/` |
 
 ## Architecture
 
@@ -54,7 +74,7 @@ Synthèse des choix et résultats OPS : [SYNTHESE_OPS.md](SYNTHESE_OPS.md).
 Prérequis : Docker Desktop (moteur WSL 2), uv, Git. Python 3.12 est installé par uv.
 
 ```powershell
-git clone <url-du-depot> bank-mlops; cd bank-mlops
+git clone https://github.com/adnanaal/bank-mlops.git; cd bank-mlops
 uv python install 3.12
 uv sync --locked
 Copy-Item .env.example .env
@@ -85,6 +105,9 @@ Interfaces : MLflow http://127.0.0.1:7281 · Prefect http://127.0.0.1:4200 · Gr
 | Dashboard | `uv run --locked python grafana/build_dashboard.py` (provisionné automatiquement) |
 
 ## Démonstrations
+
+Le déroulé détaillé, avec les résultats attendus et une solution de repli, est décrit dans
+[docs/DEMONSTRATION.md](docs/DEMONSTRATION.md).
 
 1. **Nominal** : `scripts/simulate_arrival.py` dépose un lot → le déploiement planifié le détecte → validation GX,
    run MLflow, version qualifiée, sélection éventuelle → `build_manifest.py` + redémarrage de l'API → requêtes et
